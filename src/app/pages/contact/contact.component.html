@@ -1,0 +1,91 @@
+<p>contact works!</p>
+<section class="contact-section py-5">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Contact Us</h2>
+      <p class="text-muted">
+        Reach out to us for satellite data solutions and partnerships
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Contact Form -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm p-4">
+
+          <form [formGroup]="contactForm" (ngSubmit)="submit()">
+
+            <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+              />
+              <small class="text-danger" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid">
+                Name is required
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+              />
+              <small class="text-danger" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
+                Enter a valid email
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Message</label>
+              <textarea
+                rows="5"
+                class="form-control"
+                formControlName="message"
+              ></textarea>
+              <small class="text-danger" *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid">
+                Message is required
+              </small>
+            </div>
+
+            <button class="btn btn-primary w-100" type="submit">
+              Send Message
+            </button>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm p-4 h-100">
+
+          <h5 class="fw-bold mb-3">Get in Touch</h5>
+
+          <p class="text-muted">
+            We’d love to discuss how satellite intelligence can support your business.
+          </p>
+
+          <ul class="list-unstyled mt-4">
+            <li class="mb-3">
+              📧 <strong>Email:</strong> info.geosant.com
+            </li>
+            <li class="mb-3">
+              📞 <strong>Phone:</strong> +91 98765 43210
+            </li>
+            <li class="mb-3">
+              📍 <strong>Address:</strong> Bangalore, Karnataka, India
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

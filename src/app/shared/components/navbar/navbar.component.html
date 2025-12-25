@@ -1,0 +1,12 @@
+<!-- <p>navbar works!</p> -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="assets/images/geosant/geosant.png" width="230" height="50" alt="geosant">
+  </div>
+
+  <ul class="nav-links">
+    <li *ngFor="let link of navLinks">
+      <a [routerLink]="link.path">{{ link.label }}</a>
+    </li>
+  </ul>
+</nav>
