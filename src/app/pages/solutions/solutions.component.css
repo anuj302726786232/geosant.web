@@ -1,0 +1,147 @@
+/* HERO SECTION */
+.industries-hero {
+  height: 55vh;
+  overflow: hidden;
+}
+
+/* BACKGROUND VIDEO */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* DARK OVERLAY (for readability) */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(2, 6, 23, 0.7),
+    rgba(2, 6, 23, 0.9)
+  );
+  z-index: 2;
+}
+
+/* CONTENT ABOVE VIDEO */
+.industries-hero .container {
+  z-index: 3;
+}
+
+
+/* CONTENT BACKGROUND */
+.industries-content {
+  background: linear-gradient(
+    180deg,
+    #f8fafc 0%,
+    #eef2f7 50%,
+    #e2e8f0 100%
+  );
+}
+
+/* INDUSTRY BLOCK */
+.industries-content{
+    background: linear-gradient(
+    135deg,
+    #020617,
+    #071b3a,
+    #020617
+  );;
+}
+.industry-block {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow:
+    0 10px 30px rgba(2, 6, 23, 0.08),
+    0 30px 80px rgba(2, 6, 23, 0.05);
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle accent line */
+.industry-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, #038c4c, #22c55e);
+  transition: width 0.5s ease;
+}
+
+.industry-block:hover::before {
+  width: 100%;
+}
+
+.industry-block:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 25px 60px rgba(2, 6, 23, 0.15),
+    0 50px 120px rgba(2, 6, 23, 0.1);
+}
+
+/* IMAGES */
+.industry-img {
+  border-radius: 18px;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.industry-block:hover .industry-img {
+  transform: scale(1.06);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* HEADINGS */
+.industries-content h3 {
+  color: #020617;
+  margin-bottom: 12px;
+}
+
+/* LIST */
+.industry-list {
+  padding-left: 1rem;
+}
+
+.industry-list li {
+  margin-bottom: 0.6rem;
+  position: relative;
+  font-weight: 500;
+}
+
+.industry-list li::before {
+  content: '✔';
+  color: #038c4c;
+  margin-right: 0.5rem;
+}
+
+/* CTA */
+.cta-section {
+    color: white;
+  background: linear-gradient(
+    135deg,
+    #020617,
+    #071b3a,
+    #020617
+  );
+}
+
+.cta-section::before {
+  content: "";
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(56, 189, 248, 0.15),
+    transparent 60%
+  );
+}
+

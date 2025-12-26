@@ -31,24 +31,18 @@
    EXPERTISE CARDS – MODERN
 ================================ */
 
-.expertise-section{
+.expertise-section {
   color: white;
-background:
-    radial-gradient(
-      1200px circle at 15% 20%,
+  background:
+    radial-gradient(1200px circle at 15% 20%,
       rgba(3, 140, 76, 0.18),
-      transparent 45%
-    ),
-    radial-gradient(
-      1000px circle at 85% 30%,
+      transparent 45%),
+    radial-gradient(1000px circle at 85% 30%,
       rgba(13, 110, 253, 0.18),
-      transparent 50%
-    ),
-    linear-gradient(
-      180deg,
+      transparent 50%),
+    linear-gradient(180deg,
       rgba(2, 6, 23, 0.98),
-      rgba(2, 6, 23, 0.85)
-    );
+      rgba(2, 6, 23, 0.85));
 }
 
 .expertise-section .card {
@@ -66,12 +60,10 @@ background:
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    120deg,
-    rgba(3, 140, 76, 0.35),
-    rgba(13, 110, 253, 0.35),
-    transparent 70%
-  );
+  background: linear-gradient(120deg,
+      rgba(3, 140, 76, 0.35),
+      rgba(13, 110, 253, 0.35),
+      transparent 70%);
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -160,11 +152,9 @@ background:
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: linear-gradient(
-    to top,
-    rgba(2, 6, 23, 0.95),
-    rgba(2, 6, 23, 0.35)
-  );
+  background: linear-gradient(to top,
+      rgba(2, 6, 23, 0.95),
+      rgba(2, 6, 23, 0.35));
   transition: background 0.4s ease;
 }
 
@@ -188,11 +178,7 @@ background:
 }
 
 .industry-card:hover .industry-overlay {
-  background: linear-gradient(
-    to top,
-    rgba(2, 6, 23, 0.98),
-    rgba(2, 6, 23, 0.55)
-  );
+  background: linear-gradient(to top,
+      rgba(2, 6, 23, 0.98),
+      rgba(2, 6, 23, 0.55));
 }
-
-

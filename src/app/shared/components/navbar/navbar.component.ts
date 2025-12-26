@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NavigationService } from '../../../core/services/navigation.service';
 import { NavLink } from '../../../core/models/nav-link.models';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgFor, RouterLink],
+  imports: [NgFor, RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
