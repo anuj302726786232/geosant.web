@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { AfterViewInit, Component } from '@angular/core';
+import { RouterLink, RouterModule } from '@angular/router';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-solutions',
@@ -8,6 +9,12 @@ import { RouterLink } from '@angular/router';
   templateUrl: './solutions.component.html',
   styleUrl: './solutions.component.css'
 })
-export class SolutionsComponent {
-
+export class SolutionsComponent implements AfterViewInit {
+ngAfterViewInit(): void {
+    AOS.init({
+      duration: 900,
+      easing: 'ease-out-cubic',
+      once: true
+    });
+  }
 }

@@ -1,0 +1,62 @@
+<section class="industries-hero position-relative d-flex align-items-center">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="assets/videos/industries/satelliteindus.mp4" type="video/mp4" />
+  </video>
+
+  <div class="video-overlay"></div>
+
+  <div class="container text-center position-relative hero-text">
+    <h1 class="fw-bold">
+      <span>Industries We Serve</span>
+    </h1>
+    <p class="lead mt-3">
+      Satellite intelligence powering real-world decisions
+    </p>
+  </div>
+</section>
+
+<!-- Body content -->
+<section class="industries-section">
+    <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header text-center mb-5">
+            <h2 class="fw-bold">Industries We Serve</h2>
+            <p class="text-muted">
+                Empowering industries with satellite imagery, geospatial intelligence,
+                and data-driven insights.
+            </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6" *ngFor="let industry of industries">
+                <div class="industry-card h-100">
+
+                    <div class="icon-wrapper">
+                        <i class="{{ industry.icon }}"></i>
+                    </div>
+
+                    <h5 class="fw-semibold mt-3">
+                        {{ industry.title }}
+                    </h5>
+
+                    <p class="text-muted">
+                        {{ industry.description }}
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="cta-strip text-center py-5">
+  <h2 class="fw-bold">Ready to work with satellite intelligence?</h2>
+  <a routerLink="/contacts" class="btn btn-explore mt-3">
+    Talk to an Expert
+  </a>
+</section>

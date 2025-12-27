@@ -1,7 +1,136 @@
-.contact-section {
-  background-color: #f8fafc;
+/* HERO SECTION */
+.contact-hero {
+  height: 48vh;
+  overflow: hidden;
 }
 
-.card {
+/* BACKGROUND IMAGE */
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+
+  /* clarity boost */
+  filter: brightness(1.05) contrast(1.1) saturate(1.05);
+  transform: scale(1.02); /* avoids blur edges */
+}
+
+
+/* DARK OVERLAY */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      rgba(2, 6, 23, 0.55),
+      rgba(2, 6, 23, 0.75)
+    ),
+    radial-gradient(
+      circle at top,
+      rgba(56, 189, 248, 0.18),
+      transparent 60%
+    );
+}
+
+
+/* CONTENT ABOVE IMAGE */
+.contact-hero .container {
+  z-index: 3;
+}
+
+
+/* MAIN BACKGROUND */
+.contact-section {
+  background: linear-gradient(
+    135deg,
+    #020617,
+    #071b3a,
+    #020617
+  );
+}
+
+/* CARDS */
+.contact-card,
+.contact-info-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 40px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* FORM INPUTS */
+.modern-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
   border-radius: 12px;
+  padding: 14px;
+  color: #fff;
+}
+
+.modern-input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(3, 140, 76, 0.5);
+  color: #fff;
+}
+
+.form-label {
+  color: #cbd5f5;
+  font-weight: 500;
+}
+
+/* BUTTON */
+.btn-explore {
+  background-color: #038c4c;
+  color: white;
+  border-radius: 30px;
+  padding: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-explore:hover {
+  background-color: #027a42;
+  transform: translateY(-2px);
+}
+
+/* CONTACT INFO */
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #e5e7eb;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.contact-list i {
+  color: #22c55e;
+  font-size: 1.2rem;
+}
+
+/* MAP */
+.map-wrapper {
+  border-radius: 18px;
+  overflow: hidden;
+  height: 200px;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }

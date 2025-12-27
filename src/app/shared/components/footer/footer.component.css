@@ -123,3 +123,31 @@ body.light-theme .footer-bottom {
     #22d3ee
   );
 } */
+/* ===============================
+   CTA SECTION
+================================ */
+.solutions-cta {
+  padding: 4rem 0;
+  background:
+    linear-gradient(
+      120deg,
+      #020617,
+      rgba(3, 140, 76, 0.25),
+      #020617
+    );
+  color: #fff;
+}
+
+.btn-explore {
+  background: #038c4c;
+  color: #fff;
+  border-radius: 50px;
+  padding: 0.75rem 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-explore:hover {
+  background: #02c173;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(3, 140, 76, 0.5);
+}

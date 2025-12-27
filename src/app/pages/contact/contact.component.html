@@ -1,59 +1,75 @@
-<p>contact works!</p>
+<!-- CONTACT HERO -->
+<section class="contact-hero position-relative d-flex align-items-center mt-5">
+  
+  <!-- Background Image -->
+  <img
+    src="assets/images/contacts/contacts.png"
+    alt="Contact Us"
+    class="hero-bg-image"
+  />
+
+  <!-- Dark Overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Content -->
+  <div class="container text-center text-white position-relative">
+    <h1 class="fw-bold">Contact Us</h1>
+    <p class="lead mt-3">
+      Let’s discuss how satellite intelligence can empower your business
+    </p>
+  </div>
+
+</section>
+
+
+<!-- CONTACT CONTENT -->
 <section class="contact-section py-5">
   <div class="container">
 
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">Contact Us</h2>
-      <p class="text-muted">
-        Reach out to us for satellite data solutions and partnerships
-      </p>
-    </div>
+    <div class="row g-5 align-items-stretch">
 
-    <div class="row g-4">
+      <!-- CONTACT FORM -->
+      <div class="col-lg-7">
+        <div class="contact-card h-100">
 
-      <!-- Contact Form -->
-      <div class="col-lg-6">
-        <div class="card shadow-sm p-4">
+          <h4 class="fw-bold mb-4 text-white">Send Us a Message</h4>
 
           <form [formGroup]="contactForm" (ngSubmit)="submit()">
 
-            <div class="mb-3">
-              <label class="form-label">Full Name</label>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="name"
-              />
-              <small class="text-danger" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid">
-                Name is required
-              </small>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Full Name</label>
+                <input
+                  type="text"
+                  class="form-control modern-input"
+                  formControlName="name"
+                />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Email Address</label>
+                <input
+                  type="email"
+                  class="form-control modern-input"
+                  formControlName="email"
+                />
+              </div>
             </div>
 
-            <div class="mb-3">
-              <label class="form-label">Email Address</label>
-              <input
-                type="email"
-                class="form-control"
-                formControlName="email"
-              />
-              <small class="text-danger" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
-                Enter a valid email
-              </small>
-            </div>
-
-            <div class="mb-3">
+            <div class="mb-4">
               <label class="form-label">Message</label>
               <textarea
                 rows="5"
-                class="form-control"
+                class="form-control modern-input"
                 formControlName="message"
               ></textarea>
-              <small class="text-danger" *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid">
-                Message is required
-              </small>
             </div>
 
-            <button class="btn btn-primary w-100" type="submit">
+            <button
+              class="btn btn-explore w-100 btn-lg"
+              type="submit"
+              [disabled]="contactForm.invalid"
+            >
               Send Message
             </button>
 
@@ -61,27 +77,39 @@
         </div>
       </div>
 
-      <!-- Contact Info -->
-      <div class="col-lg-6">
-        <div class="card shadow-sm p-4 h-100">
+      <!-- CONTACT INFO -->
+      <div class="col-lg-5">
+        <div class="contact-info-card h-100">
 
-          <h5 class="fw-bold mb-3">Get in Touch</h5>
+          <h4 class="fw-bold mb-4 text-white">Get in Touch</h4>
 
-          <p class="text-muted">
-            We’d love to discuss how satellite intelligence can support your business.
+          <p class="text-light opacity-75">
+            We collaborate with enterprises, governments, and innovators
+            worldwide.
           </p>
 
-          <ul class="list-unstyled mt-4">
-            <li class="mb-3">
-              📧 <strong>Email:</strong> info.geosant.com
+          <ul class="contact-list mt-4">
+            <li>
+              <i class="bi bi-envelope"></i>
+              info&#64;geosant.com
             </li>
-            <li class="mb-3">
-              📞 <strong>Phone:</strong> +91 98765 43210
+            <li>
+              <i class="bi bi-telephone"></i>
+              +91 98765 43210
             </li>
-            <li class="mb-3">
-              📍 <strong>Address:</strong> Bangalore, Karnataka, India
+            <li>
+              <i class="bi bi-geo-alt"></i>
+              Sector 62, Noida, India
             </li>
           </ul>
+
+          <!-- MAP -->
+          <!-- <div class="map-wrapper mt-4">
+            <iframe
+              src="https://www.google.com/maps?q=Bangalore,India&output=embed"
+              loading="lazy"
+            ></iframe>
+          </div> -->
 
         </div>
       </div>
