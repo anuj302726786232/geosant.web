@@ -1,0 +1,40 @@
+<section class="blog-details" *ngIf="blog as b">
+
+  <!-- HERO -->
+  <header class="blog-hero">
+    <img [src]="b.image" alt="blog image" />
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="blog-category">{{ b.category }}</span>
+      <h1>{{ b.title }}</h1>
+      <p class="blog-date">{{ b.date }}</p>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="container py-5">
+    <article class="blog-body">
+
+      <p class="blog-excerpt">
+        {{ b.excerpt }}
+      </p>
+
+      <div class="content-divider"></div>
+
+      <div class="blog-content">
+        {{ b.content }}
+      </div>
+
+      <div class="blog-cta text-center mt-5">
+        <h5>Ready to unlock satellite intelligence?</h5>
+        <a routerLink="/contacts" class="btn btn-explore mt-3">
+          Talk to an Expert
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+</section>

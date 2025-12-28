@@ -1,1 +1,47 @@
-<p>blog works!</p>
+<!-- BLOG HERO -->
+<section class="blog-hero d-flex align-items-center text-center">
+  <div class="container text-white">
+    <h1 class="fw-bold">Insights & Blogs</h1>
+    <p class="lead mt-3">
+      Exploring satellite intelligence, geospatial analytics, and real-world impact
+    </p>
+  </div>
+</section>
+
+<!-- BLOG LIST -->
+<section class="blog-section py-5">
+  <div class="container">
+
+    <div class="row g-4">
+
+      <div
+        class="col-lg-4 col-md-6"
+        *ngFor="let blog of blogs">
+
+        <div class="blog-card h-100">
+
+          <div class="blog-img-wrapper">
+            <img [src]="blog.image" alt="blog image">
+            <span class="blog-category">{{ blog.category }}</span>
+          </div>
+
+          <div class="blog-content">
+            <p class="blog-date">{{ blog.date }}</p>
+            <h5 class="blog-title">{{ blog.title }}</h5>
+            <p class="blog-excerpt">{{ blog.excerpt }}</p>
+
+            <a
+              [routerLink]="['/blogs', blog.id]"
+              class="blog-link">
+              Read More →
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
