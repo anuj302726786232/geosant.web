@@ -21,12 +21,11 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(2, 6, 23, 0.65),
-      rgba(2, 6, 23, 0.95)
-    );
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 6, 23, 0.65),
+    rgba(2, 6, 23, 0.95)
+  );
 }
 
 .hero-content {
@@ -49,10 +48,46 @@
 ================================ */
 .solutions-section {
   padding: 5rem 0;
-  background:
-    radial-gradient(circle at top, rgba(3, 140, 76, 0.15), transparent 60%),
-    #020617;
+  background: #020617;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
+
+.why-us-section {
+  background: linear-gradient(
+    135deg,
+    #020617,
+    #071b3a,
+    #020617
+  );
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ===============================
+   GRID BACKGROUND
+================================ */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(34,197,94,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,197,94,0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+
+  opacity: 0.7;
+  /* animation: gridMove 40s linear infinite; */
+}
+
+/* @keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 200px 200px; }
+} */
 
 /* ===============================
    SOLUTION CARD
@@ -66,6 +101,8 @@
   transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 }
 
 .solution-card img {
@@ -90,31 +127,9 @@
   box-shadow: 0 30px 60px rgba(3, 140, 76, 0.35);
 }
 
-/* WHY US SECTION */
-.why-us-section {
-  background: linear-gradient(
-    135deg,
-    #020617,
-    #071b3a,
-    #020617
-  );
-  position: relative;
-  overflow: hidden;
-}
-
-/* subtle glow */
-.why-us-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at top,
-    rgba(56, 189, 248, 0.12),
-    transparent 60%
-  );
-}
-
-/* CARD */
+/* ===============================
+   WHY US SECTION CARDS
+================================ */
 .why-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
@@ -125,9 +140,9 @@
   transition: all 0.45s ease;
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 
-/* top accent */
 .why-card::before {
   content: "";
   position: absolute;
@@ -139,17 +154,9 @@
   transition: width 0.45s ease;
 }
 
-.why-card:hover::before {
-  width: 100%;
-}
+.why-card:hover::before { width: 100%; }
+.why-card:hover { transform: translateY(-10px); box-shadow: 0 25px 60px rgba(0,0,0,0.4); }
 
-.why-card:hover {
-  transform: translateY(-10px);
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.4);
-}
-
-/* ICON */
 .icon-circle {
   width: 70px;
   height: 70px;
@@ -161,10 +168,9 @@
   justify-content: center;
   color: #fff;
   font-size: 28px;
-  box-shadow: 0 10px 30px rgba(3, 140, 76, 0.45);
+  box-shadow: 0 10px 30px rgba(3,140,76,0.45);
 }
 
-/* TEXT */
 .why-card h5 {
   margin-bottom: 12px;
   font-weight: 600;
@@ -177,13 +183,15 @@
   line-height: 1.6;
 }
 
-/* CTA BUTTON (reuse) */
+/* CTA BUTTON */
 .btn-explore {
   background-color: #038c4c;
   color: #fff;
   border-radius: 30px;
   padding: 12px 32px;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 3;
 }
 
 .btn-explore:hover {
@@ -191,48 +199,11 @@
   transform: translateY(-2px);
 }
 
-.why-us-section {
+/* ENSURE CONTENT ABOVE GRID */
+.solutions-section .container,
+.why-us-section .container,
+.solution-card,
+.why-card {
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
-
-.btn-explore {
-  position: relative;
-  z-index: 5;
-}
-
-/* Animation Particale*/
-/* .satellite-particles {
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(1.5px 1.5px at 70% 60%, rgba(255,255,255,0.25), transparent),
-    radial-gradient(2px 2px at 40% 80%, rgba(255,255,255,0.2), transparent);
-  animation: floatParticles 30s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes floatParticles {
-  from { transform: translateY(0); }
-  to { transform: translateY(-120px); }
-} */
-
-/* Stats Counter Section */
-/* .stats-section {
-  background: linear-gradient(
-    135deg,
-    #020617,
-    #071b3a
-  );
-  color: white;
-}
-
-.stat-number {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #22c55e;
-} */
-
-
-

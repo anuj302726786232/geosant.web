@@ -1,184 +1,602 @@
+/* =====================================================
+   GLOBAL GEO-SPATIAL BACKGROUND
+===================================================== */
+.home-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* prevents z-index bleed */
+
+  /* Earth → atmosphere → space gradient */
+  background: linear-gradient(
+    180deg,
+    #071826 0%,    /* deep space */
+    #0b2b45 28%,   /* upper atmosphere */
+    #134d73 55%,   /* ocean */
+    #e6f0f7 100%   /* cloud haze */
+  );
+}
+
+/* =====================================================
+   GRID OVERLAY (GIS STYLE)
+===================================================== */
+.home-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 140px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 140px
+    );
+}
+
+/* =====================================================
+   NOISE TEXTURE (MAP DEPTH)
+===================================================== */
+.home-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
 .hero-section {
-  height: 100vh;
+  position: relative;
   overflow: hidden;
 }
 
+/* Background video */
 .hero-video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: 1;
+  opacity: 0.6;
+  mix-blend-mode: screen;
 }
 
-.overlay {
+/* Atmospheric overlay */
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(2, 6, 23, 0.65);
   z-index: 2;
+
+  background:
+    radial-gradient(
+      circle at 70% 25%,
+      rgba(120, 190, 255, 0.22),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(4, 12, 24, 0.92),
+      rgba(4, 12, 24, 0.65)
+    );
 }
 
-.hero-section .container {
+/* Hero content */
+.hero-content {
   position: relative;
   z-index: 3;
 }
 
-/* For Solutions Card */
-/* ===============================
-   EXPERTISE CARDS – MODERN
-================================ */
-
-.expertise-section {
-  color: white;
-  background:
-    radial-gradient(1200px circle at 15% 20%,
-      rgba(3, 140, 76, 0.18),
-      transparent 45%),
-    radial-gradient(1000px circle at 85% 30%,
-      rgba(13, 110, 253, 0.18),
-      transparent 50%),
-    linear-gradient(180deg,
-      rgba(2, 6, 23, 0.98),
-      rgba(2, 6, 23, 0.85));
+/* Hero buttons */
+.hero-section .btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.expertise-section .card {
-  background: rgba(255, 255, 255, 0.96);
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.35s ease;
+.hero-section .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* =====================================================
+   SECTION NORMALIZATION
+===================================================== */
+.hero-section,
+.partners-section,
+.solutions-section,
+.industries-section,
+.resources-section {
+  background: transparent;
   position: relative;
+  z-index: 2;
+}
+
+section {
+  /* padding-top: 5rem; */
+  padding-bottom: 5rem;
+}
+
+/* =====================================================
+   SURFACE CARDS (SOLUTIONS, RESOURCES)
+===================================================== */
+/* .card,
+.surface-card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+} */
+
+/* =====================================================
+   PARTNERS SECTION
+===================================================== */
+.partners-slider {
   overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
 }
 
-/* Glow border effect */
-.expertise-section .card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg,
-      rgba(3, 140, 76, 0.35),
-      rgba(13, 110, 253, 0.35),
-      transparent 70%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
+.partners-track {
+  display: flex;
+  width: calc(200%); /* Because we duplicated logos */
+  animation: scroll-left 20s linear infinite;
 }
 
-/* Hover effect */
-.expertise-section .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+.partner-logo-box {
+  flex: 0 0 auto;
+  width: 160px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+  background: rgba(255, 255, 255, 0.05); /* subtle glass */
+  border-radius: 12px;
+  overflow: hidden; /* important to crop logo perfectly */
+  transition: transform 0.3s ease;
 }
 
-.expertise-section .card:hover::before {
+.partner-logo-box:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.partner-logo {
+  max-width: 120px;
+  max-height: 50px;
+  object-fit: contain;
+  filter: grayscale(0%);
+  opacity: 0.75;
+  transition: all 0.25s ease;
+}
+
+.partner-logo-box:hover .partner-logo {
+  filter: grayscale(0%);
   opacity: 1;
 }
 
-/* Icon styling */
-.expertise-section i {
-  background: linear-gradient(135deg, #038c4c, #0d6efd);
+/* SCROLL ANIMATION */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* =====================================================
+   SOLUTIONS SECTION
+===================================================== */
+.solutions-section {
+  position: relative;
+  z-index: 2;
+}
+
+/* Card base */
+.solution-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: linear-gradient(
+    180deg,
+    rgba(30, 90, 140, 0.35),
+    rgba(15, 45, 75, 0.45)
+  );
+
+  border-radius: 18px;
+  padding: 1.75rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(120, 190, 255, 0.25);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover */
+.solution-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Card content */
+.solution-card-body h5 {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.solution-card-body p {
+  color: rgba(230, 237, 243, 0.85);
+  line-height: 1.6;
+}
+
+/* Icon */
+.solution-icon {
+  font-size: 2.4rem;
+  color: #7cc4ff;
+}
+
+/* Footer */
+.solution-card-footer {
+  margin-top: 1rem;
+}
+
+.solution-card-footer a {
+  color: #9ad4ff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.solution-card-footer a:hover {
+  color: #ffffff;
+}
+
+/* =====================================================
+   INDUSTRIES SECTION
+===================================================== */
+.industries-section {
+  position: relative;
+  z-index: 2;
+}
+
+/* Card base */
+.industry-card {
+  height: 240px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Glass overlay */
+.industry-glass {
+  position: absolute;
+  inset: 0;
+  padding: 1.75rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background: linear-gradient(
+    180deg,
+    rgba(15, 45, 75, 0.25),
+    rgba(10, 30, 55, 0.85)
+  );
+
+  /* backdrop-filter: blur(6px); It will blur the background image */
+  border: 1px solid rgba(120, 190, 255, 0.25);
+}
+
+/* Text */
+.industry-glass h5 {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.industry-glass p {
+  color: rgba(230, 237, 243, 0.85);
+  margin-bottom: 0.5rem;
+}
+
+/* Link */
+.industry-glass a {
+  color: #9ad4ff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.industry-glass a:hover {
+  color: #ffffff;
+}
+
+.industry-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.industry-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+}
+
+/* =====================================================
+   METRICS
+===================================================== */
+.metrics-card {
+  background: linear-gradient(
+    180deg,
+    #0b2238,
+    #061522
+  );
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* =====================================================
+   DARK MODE SUPPORT
+===================================================== */
+@media (prefers-color-scheme: dark) {
+  .home-page {
+    background: linear-gradient(
+      180deg,
+      #040b14 0%,
+      #071826 35%,
+      #0b2b45 70%,
+      #134d73 100%
+    );
+  }
+
+  /* .card,
+  .surface-card {
+    background: rgba(10, 25, 45, 0.85);
+    color: #e8f1f8;
+  } */
+}
+
+/* =========================================
+   GLOBAL TEXT VISIBILITY SYSTEM
+========================================= */
+.home-page {
+  color: #e6edf3; /* soft off-white, not pure white */
+}
+
+/* Headings */
+.home-page h1,
+.home-page h2,
+.home-page h3,
+.home-page h4,
+.home-page h5 {
+  color: #ffffff;
+  letter-spacing: 0.2px;
+}
+
+/* Secondary text */
+.home-page p,
+.home-page .text-muted,
+.home-page .opacity-75 {
+  color: rgba(230, 237, 243, 0.78) !important;
+}
+
+/* Small helper text */
+.home-page .small {
+  color: rgba(230, 237, 243, 0.7);
+}
+
+/* For Explore button */
+.geo-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 240px;
+  height: 56px;
+
+  text-decoration: none;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Modern button background */
+.geo-btn-bg {
+  position: absolute;
+  inset: 2px;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #0b1f33,
+    #123a5a,
+    #0b1f33
+  );
+
+  backdrop-filter: blur(6px);
+  z-index: 1;
+}
+
+/* Animated border layer */
+.geo-btn-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #4da3ff,
+    #00e5ff,
+    #4da3ff,
+    transparent
+  );
+
+  background-size: 300% 100%;
+  animation: borderSlide 2.8s linear infinite;
+  z-index: 0;
+}
+
+/* Button text */
+.geo-btn-text {
+  position: relative;
+  z-index: 2;
+
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  color: #e8f1f8;
+}
+
+/* Hover effect */
+.geo-btn:hover .geo-btn-bg {
+  background: linear-gradient(
+    135deg,
+    #123a5a,
+    #1f5f8b,
+    #123a5a
+  );
+}
+
+.geo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(77, 163, 255, 0.35);
+}
+
+/* Animation */
+@keyframes borderSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* For btn text */
+.geo-btn-text {
+  position: relative;
+  z-index: 2;
+
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    90deg,
+    #9fdcff,
+    #4da3ff,
+    #00e5ff,
+    #4da3ff,
+    #9fdcff
+  );
+
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: textFlow 4s linear infinite;
+}
+
+@keyframes textFlow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* CTA Button */
+.expert-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+
+  background: linear-gradient(
+    135deg,
+    rgba(79, 172, 254, 0.18),
+    rgba(0, 229, 255, 0.08)
+  );
+
+  border: 1px solid rgba(120, 190, 255, 0.45);
+  backdrop-filter: blur(8px);
+
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* subtle scanning line */
+.expert-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35),
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 2s ease;
+}
+
+/* text */
+.expert-btn-text {
+  position: relative;
+  z-index: 2;
+
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    90deg,
+    #e8f1f8,
+    #9fdcff,
+    #4da3ff
+  );
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Text */
-.expertise-section .card-title {
-  font-weight: 600;
-  margin-top: 0.75rem;
+/* hover */
+.expert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 35px rgba(0, 100, 255, 0.25),
+    0 0 0 1px rgba(120, 190, 255, 0.6);
 }
 
-.expertise-section .card-text {
-  color: #6b7280;
-  font-size: 0.95rem;
-}
-
-
-/* For Explore Button */
-/* Explore Services Button */
-.btn-explore {
-  background-color: #038c4c;
-  border-color: #038c4c;
-  color: #ffffff;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  transition: all 0.25s ease;
-}
-
-.btn-explore:hover,
-.btn-explore:focus {
-  background-color: #027a41;
-  border-color: #027a41;
-  color: #ffffff;
-  box-shadow: 0 8px 20px rgba(3, 140, 76, 0.35);
-}
-
-.btn-explore:active {
-  background-color: #026c3a;
-  border-color: #026c3a;
-}
-
-/* For 'what we serve' */
-/* INDUSTRIES SECTION */
-/* ===============================
-   INDUSTRY CARDS – MODERN
-================================ */
-
-.industry-card {
-  position: relative;
-  height: 300px;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
-  transition: transform 0.4s ease;
-}
-
-/* Image zoom */
-.industry-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-/* Overlay */
-.industry-overlay {
-  position: absolute;
-  inset: 0;
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: linear-gradient(to top,
-      rgba(2, 6, 23, 0.95),
-      rgba(2, 6, 23, 0.35));
-  transition: background 0.4s ease;
-}
-
-.industry-overlay h5 {
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-.industry-overlay p {
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-
-/* Hover */
-.industry-card:hover {
-  transform: translateY(-8px);
-}
-
-.industry-card:hover img {
-  transform: scale(1.1);
-}
-
-.industry-card:hover .industry-overlay {
-  background: linear-gradient(to top,
-      rgba(2, 6, 23, 0.98),
-      rgba(2, 6, 23, 0.55));
+.expert-btn:hover::before {
+  transform: translateX(120%);
 }

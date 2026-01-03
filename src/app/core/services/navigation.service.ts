@@ -10,7 +10,7 @@ export class NavigationService {
     return [
       { label: 'Solutions', path: '/solutions' },
       { label: 'Industries', path: '/industries' },
-      { label: 'Blogs', path: '/blogs' },
+      { label: 'Resources', path: '/blogs' },
       { label: 'About', path: '/about' },
       { label: 'Careers', path: '/careers' }
     ];

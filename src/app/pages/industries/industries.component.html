@@ -1,61 +1,61 @@
-<section class="industries-hero position-relative d-flex align-items-center">
+<!-- GLOBAL GRID BACKGROUND -->
+<div class="global-grid-bg"></div>
+
+<!-- HERO -->
+<section class="geo-hero position-relative d-flex align-items-center">
   <video class="hero-video" autoplay muted loop playsinline>
-    <source src="assets/videos/industries/satelliteindus.mp4" type="video/mp4" />
+    <source src="assets/videos/solutions/satellite-solutions.mp4" type="video/mp4" />
   </video>
 
   <div class="video-overlay"></div>
 
   <div class="container text-center position-relative hero-text">
     <h1 class="fw-bold">
-      <span>Industries We Serve</span>
+      <span>Industries We Empower</span>
     </h1>
     <p class="lead mt-3">
-      Satellite intelligence powering real-world decisions
+      Mission-ready satellite intelligence for real-world challenges
     </p>
   </div>
 </section>
 
-<!-- Body content -->
-<section class="industries-section">
+<!-- GRID -->
+<section class="geo-section">
   <div class="container">
 
-    <!-- Section Header -->
-    <div class="section-header text-center mb-5">
-      <h2 class="fw-bold">Industries We Serve</h2>
-      <p class="">
-        Empowering industries with satellite imagery, geospatial intelligence,
-        and data-driven insights.
+    <div class="geo-header text-center mb-5">
+      <h2 class="fw-bold">Our Capabilities</h2>
+      <p>
+        End-to-end satellite solutions designed for intelligence,
+        monitoring, and operational decision-making.
       </p>
     </div>
 
-    <!-- Services Grid -->
     <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let indus of industries">
+        <div class="geo-card h-100">
 
-      <div class="col-lg-4 col-md-6" *ngFor="let industry of industries">
-        <div class="industry-card h-100">
-
-          <div class="icon-wrapper">
-            <i class="{{ industry.icon }}"></i>
+          <div class="geo-icon">
+            <i class="{{ indus.icon }}"></i>
           </div>
 
           <h5 class="fw-semibold mt-3">
-            {{ industry.title }}
+            {{ indus.title }}
           </h5>
 
-          <p class="">
-            {{ industry.description }}
+          <p>
+            {{ indus.description }}
           </p>
 
         </div>
       </div>
-
     </div>
 
-  </div>
+    <div class="text-center mt-5">
+      <a routerLink="/contacts" class="btn btn-explore">
+        Talk to an Expert
+      </a>
+    </div>
 
-  <div class="text-center mt-3">
-    <a routerLink="/contacts" class="btn btn-explore mt-3">
-      Talk to an Expert
-    </a>
   </div>
 </section>

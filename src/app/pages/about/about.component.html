@@ -1,173 +1,167 @@
-<!-- ABOUT HERO -->
-<section class="about-hero d-flex align-items-center">
+<!-- PAGE WRAPPER WITH GRID BACKGROUND -->
+<div class="page-bg">
+
+  <!-- HERO SECTION -->
+  <section class="about-hero d-flex align-items-center justify-content-center" style="margin-top: 3cm;">
     <div class="hero-overlay"></div>
-
     <div class="container text-center text-white position-relative">
-        <h1 class="fw-bold">About GeoSant</h1>
-        <p class="lead mt-3">
-            Empowering decisions through satellite intelligence and geospatial analytics
-        </p>
+      <h1 class="fw-bold hero-title">Geosant Intelligence</h1>
+      <p class="hero-subtitle mt-3">
+        Transforming satellite data into actionable insights for a smarter world
+      </p>
+      <!-- <a routerLink="/contacts" class="btn btn-explore mt-4 glow-btn">
+        Talk to Our Experts
+      </a> -->
     </div>
-</section>
+  </section>
 
-<!-- WHO WE ARE -->
-<section class="about-section py-5">
+  <!-- WHO WE ARE -->
+  <section class="about-section py-5">
     <div class="container">
+      <div class="row g-5 align-items-center">
 
-        <div class="row align-items-center mb-5">
-            <div class="col-lg-6">
-                <h2 class="section-title">Who We Are</h2>
-                <p class="section-text">
-                    GeoSant is a geospatial intelligence company specializing in satellite imagery,
-                    earth observation, and data-driven insights. We help governments,
-                    enterprises, and researchers transform raw satellite data into
-                    actionable intelligence.
-                </p>
-                <p class="section-text">
-                    Our solutions power agriculture monitoring, urban planning,
-                    climate resilience, and infrastructure development across the globe.
-                </p>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="about-card">
-                    <h5>What We Do</h5>
-                    <ul class="about-list">
-                        <li>Satellite Imagery & EO Data</li>
-                        <li>Geospatial Analytics & AI</li>
-                        <li>Climate & Environmental Monitoring</li>
-                        <li>Decision Support Systems</li>
-                    </ul>
-                </div>
-            </div>
+        <!-- TEXT -->
+        <div class="col-lg-6">
+          <h2 class="section-title">Who We Are</h2>
+          <p class="section-text">
+            Geosant is a next-gen geospatial intelligence company delivering high-resolution
+            satellite imagery, AI-driven analytics, and decision support solutions
+            for governments, enterprises, and researchers worldwide.
+          </p>
+          <ul class="about-list">
+            <li>Satellite Imagery & EO Data</li>
+            <li>AI-Powered Geospatial Analytics</li>
+            <li>Climate & Environmental Monitoring</li>
+            <li>Real-Time Decision Support</li>
+          </ul>
         </div>
 
-    </div>
-</section>
-
-<!-- STATS COUNTER -->
-<section class="about-stats py-5">
-    <div class="container">
-
-        <div class="row text-center g-4">
-
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <h2>{{ counters.experience }}+</h2>
-                    <p>Years of Experience</p>
-                </div>
+        <!-- ICON CARD -->
+        <div class="col-lg-6">
+          <div class="info-card">
+            <div class="info-icon">
+              <!-- Satellite SVG Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="#22c55e" viewBox="0 0 16 16">
+                <path d="M4 1a1 1 0 0 0-1 1v3h1V2h3V1H4z"/>
+                <path d="M7.5 5.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5V11H7.5V5.5zM2 6h1v5H2V6z"/>
+                <path d="M10 12h3v1h-3v-1z"/>
+              </svg>
             </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <h2>{{ counters.clients }}+</h2>
-                    <p>Enterprise Clients</p>
-                </div>
+            <div class="info-content">
+              <h4>Global Reach</h4>
+              <p>
+                Covering millions of square kilometers with high-precision satellite monitoring.
+              </p>
             </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <h2>{{ counters.area }}M+</h2>
-                    <p>Sq Km Analyzed</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <h2>{{ counters.countries }}+</h2>
-                    <p>Countries Served</p>
-                </div>
-            </div>
-
+          </div>
         </div>
 
+      </div>
     </div>
-</section>
+  </section>
 
-
-<!-- MISSION & VISION -->
-<section class="about-dark py-5">
+  <!-- CORE CAPABILITIES -->
+  <section class="about-stats py-5">
     <div class="container">
-
-        <div class="row g-4">
-
-            <div class="col-lg-6">
-                <div class="glass-card h-100">
-                    <h4>Our Mission</h4>
-                    <p>
-                        To democratize satellite intelligence by delivering accurate,
-                        scalable, and reliable geospatial insights that drive smarter
-                        decisions for a sustainable planet.
-                    </p>
-                </div>
+      <div class="text-center mb-5">
+        <h2 class="section-title">Our Capabilities</h2>
+        <p class="section-subtitle">Advanced analytics & satellite intelligence at scale</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="capability-card">
+            <div class="capability-icon">
+              <!-- Satellite SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#22c55e" viewBox="0 0 16 16">
+                <path d="M16 8a8 8 0 1 1-16 0 8 8 0 0 1 16 0zM8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1z"/>
+                <path d="M8 4a4 4 0 1 1 0 8A4 4 0 0 1 8 4z"/>
+              </svg>
             </div>
-
-            <div class="col-lg-6">
-                <div class="glass-card h-100">
-                    <h4>Our Vision</h4>
-                    <p>
-                        To become a global leader in satellite-powered analytics,
-                        enabling industries to understand Earth better and respond
-                        faster to change.
-                    </p>
-                </div>
-            </div>
-
+            <h5>Satellite Monitoring</h5>
+            <p>Continuous observation of land, sea, and urban environments.</p>
+          </div>
         </div>
 
+        <div class="col-md-6 col-lg-3">
+          <div class="capability-card">
+            <div class="capability-icon">
+              <!-- AI / CPU SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#22c55e" viewBox="0 0 16 16">
+                <path d="M2 2h12v12H2V2zm1 1v10h10V3H3z"/>
+                <path d="M5 5h6v6H5V5z"/>
+              </svg>
+            </div>
+            <h5>AI Analytics</h5>
+            <p>Processing satellite data with cutting-edge machine learning models.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="capability-card">
+            <div class="capability-icon">
+              <!-- Shield / Security SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#22c55e" viewBox="0 0 16 16">
+                <path d="M5.5 0A7.5 7.5 0 0 0 0 7.5v1.085c0 .467.252.897.657 1.13L5.5 15l4.843-5.285A1.75 1.75 0 0 0 11 8.585V7.5A7.5 7.5 0 0 0 5.5 0z"/>
+              </svg>
+            </div>
+            <h5>Secure & Reliable</h5>
+            <p>Enterprise-grade security for data and analytics pipelines.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="capability-card">
+            <div class="capability-icon">
+              <!-- Expert / Team SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#22c55e" viewBox="0 0 16 16">
+                <path d="M5.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z"/>
+                <path d="M0 14s1-1 5-1 5 1 5 1v1H0v-1z"/>
+              </svg>
+            </div>
+            <h5>Domain Expertise</h5>
+            <p>Geospatial experts guiding every analysis for maximum impact.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- WHY CHOOSE US -->
-<section class="about-section py-5">
+  <!-- MISSION & VISION -->
+  <section class="about-dark py-5">
     <div class="container">
+      <div class="row g-4">
 
-        <div class="text-center mb-5">
-            <h2 class="section-title">Why Choose GeoSant</h2>
-            <p class="section-subtitle">
-                Trusted satellite intelligence for mission-critical decisions
+        <div class="col-md-6">
+          <div class="glass-card">
+            <h4>Our Mission</h4>
+            <p>
+              To deliver real-time, accurate geospatial intelligence that empowers smarter decisions
+              across industries.
             </p>
+          </div>
         </div>
 
-        <div class="row g-4">
-
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <h5>High Accuracy</h5>
-                    <p>Reliable satellite data validated through advanced analytics.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <h5>Scalable Solutions</h5>
-                    <p>From local monitoring to global-scale intelligence.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <h5>Industry Expertise</h5>
-                    <p>Deep domain knowledge across agriculture, urban & climate.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <h5>Secure & Trusted</h5>
-                    <p>Enterprise-grade security and data governance.</p>
-                </div>
-            </div>
-
+        <div class="col-md-6">
+          <div class="glass-card">
+            <h4>Our Vision</h4>
+            <p>
+              To lead the world in satellite-powered analytics, helping businesses
+              and governments anticipate, adapt, and act.
+            </p>
+          </div>
         </div>
 
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="cta-strip text-center py-5">
-    <h2 class="fw-bold">Want to know how GeoSant can help you?</h2>
-    <a routerLink="/contacts" class="btn btn-explore mt-3">
-        Talk to an Expert
+  <!-- CTA SECTION -->
+  <section class="cta-strip text-center py-5">
+    <h2 class="fw-bold">Ready to leverage satellite intelligence?</h2>
+    <a routerLink="/contacts" class="btn btn-explore mt-3 glow-btn">
+      Talk to an Expert
     </a>
-</section>
+  </section>
+
+</div>

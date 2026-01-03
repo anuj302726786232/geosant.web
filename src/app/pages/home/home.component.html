@@ -1,179 +1,188 @@
-<!-- <p>home works!</p> -->
-<section class="hero-section position-relative">
+<div class="home-page">
 
-  <!-- Background Video -->
-  <video
-  #bgVideo
-  class="hero-video"
-  autoplay
-  muted
-  loop
-  playsinline
->
-  <source src="assets/videos/satellite.mp4" type="video/mp4">
-</video>
+  <!-- HERO -->
+  <section class="hero-section text-light">
+    <video #heroVideo muted loop playsinline preload="auto" class="hero-video">
+      <source src="assets/videos/satellite.mp4" type="video/mp4" />
+    </video>
 
-  <!-- Dark Overlay -->
-  <div class="overlay"></div>
+    <div class="hero-overlay"></div>
 
-  <!-- Content -->
-  <div class="container h-100 d-flex align-items-center">
-    <div class="text-white col-md-8">
-      <h1 class="display-4 fw-bold">
-        Satellite Intelligence for a Smarter Planet
-      </h1>
+    <div class="container hero-content">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-md-7">
+          <span class="badge bg-primary mb-3">
+            Satellite Intelligence Platform
+          </span>
 
-      <p class="lead mt-3">
-        Unlock actionable insights from Earth observation data using
-        advanced geospatial analytics.
+          <h1 class="display-5 fw-bold mt-3">
+            Transforming Earth Data into
+            <span class="text-primary">Actionable Intelligence</span>
+          </h1>
+
+          <p class="lead opacity-75 mt-3">
+            Harness high-resolution satellite imagery and geospatial analytics
+            to monitor change, manage risk, and drive confident decisions.
+          </p>
+
+          <div class="mt-4">
+            <a routerLink="/solutions" class="btn btn-primary btn-lg me-3">
+              Explore Capabilities
+            </a>
+            <a routerLink="/contacts" class="btn btn-outline-light btn-lg">
+              Request a Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="solutions-section mt-5">
+    <div class="container">
+      <div class="mb-2 text-light">
+        <h2 class="fw-bold">What We Deliver</h2>
+        <p class="opacity-75">
+          End-to-end satellite intelligence tailored to mission needs
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-3" *ngFor="let s of solutions">
+          <div class="solution-card h-100">
+            <div class="solution-card-body">
+              <div class="solution-icon">{{ s.icon }}</div>
+              <h5 class="mt-3">{{ s.title }}</h5>
+              <p class="small opacity-75">
+                {{ s.description }}
+              </p>
+            </div>
+
+            <!-- <div class="solution-card-footer">
+              <a [routerLink]="['/solutions', s.slug]">
+                Explore →
+              </a>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <a routerLink="/solutions" class="geo-btn">
+            <span class="geo-btn-bg"></span>
+            <span class="geo-btn-border"></span>
+            <span class="geo-btn-text">Explore Solutions</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- INDUSTRIES -->
+  <section class="industries-section">
+    <div class="container">
+      <div class="mb-5 text-light">
+        <h2 class="fw-bold">Industries We Empower</h2>
+        <p class="opacity-75">
+          Delivering satellite intelligence across critical sectors
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-3" *ngFor="let i of industries">
+          <div class="industry-card" [style.backgroundImage]="'url(' + i.image + ')'">
+            <div class="industry-glass">
+              <h5>{{ i.name }}</h5>
+              <p class="small opacity-75">
+                {{ i.tagline }}
+              </p>
+              <!-- <a [routerLink]="['/industries', i.slug]">
+                Learn More →
+              </a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <a routerLink="/industries" class="geo-btn">
+            <span class="geo-btn-bg"></span>
+            <span class="geo-btn-border"></span>
+            <span class="geo-btn-text">Explore Industries</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- METRICS -->
+  <section class="py-5">
+    <div class="container metrics-card p-5">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <h2>0+</h2>
+          <p class="opacity-75">Years of Expertise</p>
+        </div>
+        <div class="col-md-4">
+          <h2>0+</h2>
+          <p class="opacity-75">Countries Served</p>
+        </div>
+        <div class="col-md-4">
+          <h2>0+</h2>
+          <p class="opacity-75">Projects Delivered</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners-section mt-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h6 class="text-uppercase text-primary fw-semibold mb-2">
+          Trusted Partnerships
+        </h6>
+        <h2 class="fw-bold">Working with Global Satellite Leaders</h2>
+        <p class="mt-2 opacity-75">
+          Collaborating with established satellite operators worldwide.
+        </p>
+      </div>
+
+      <!-- Slider container -->
+      <div class="partners-slider">
+        <div class="partners-track">
+          <div class="partner-logo-box" *ngFor="let p of partners">
+            <img [src]="p.logoUrl" [alt]="p.name" class="partner-logo" loading="lazy" />
+          </div>
+          <!-- Duplicate for seamless loop -->
+          <div class="partner-logo-box" *ngFor="let p of partners">
+            <img [src]="p.logoUrl" [alt]="p.name" class="partner-logo" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="">
+    <div class="container surface-card text-center p-3">
+      <h2 class="fw-bold">Ready to Leverage Satellite Intelligence?</h2>
+      <p class="text-muted">
+        Access reliable data and expert insights for your next initiative
       </p>
 
       <div class="mt-4">
-        <a class="btn btn-primary btn-lg me-3" routerLink="/solutions">Explore Solutions</a>
-        <a class="btn btn-outline-light btn-lg" routerLink="/contacts">Contact Us</a>
+        <!-- <a routerLink="/contact/request-demo" class="btn btn-primary me-3">
+          Request Data
+        </a> -->
+        <a routerLink="/contacts" class="expert-btn">
+          <span class="expert-btn-text">Talk to a Satellite Expert</span>
+        </a>
       </div>
     </div>
-  </div>
+  </section>
 
-</section>
-
-<!-- OUR EXPERTISE -->
-<section class="py-5 expertise-section">
-  <div class="container">
-
-    <!-- Section Title -->
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">Our Expertise</h2>
-      <p class="">
-        Advanced satellite-based solutions across multiple domains
-      </p>
-    </div>
-
-    <!-- Cards -->
-    <div class="row g-4">
-
-      <!-- Card 1 -->
-      <div class="col-lg-3 col-md-6">
-        <div class="card h-100 shadow-sm text-center">
-          <div class="card-body">
-            <i class="bi bi-globe fs-1 text-primary mb-3"></i>
-            <h5 class="card-title">Earth Observation</h5>
-            <p class="card-text">
-              High-resolution satellite imagery for land and climate analysis.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="col-lg-3 col-md-6">
-        <div class="card h-100 shadow-sm text-center">
-          <div class="card-body">
-            <i class="bi bi-bar-chart-line fs-1 text-primary mb-3"></i>
-            <h5 class="card-title">Geospatial Analytics</h5>
-            <p class="card-text">
-              Data-driven insights using GIS and AI-powered models.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="col-lg-3 col-md-6">
-        <div class="card h-100 shadow-sm text-center">
-          <div class="card-body">
-            <i class="bi bi-cloud-sun fs-1 text-primary mb-3"></i>
-            <h5 class="card-title">Climate Monitoring</h5>
-            <p class="card-text">
-              Track environmental changes and climate risks globally.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="col-lg-3 col-md-6">
-        <div class="card h-100 shadow-sm text-center">
-          <div class="card-body">
-            <i class="bi bi-shield-check fs-1 text-primary mb-3"></i>
-            <h5 class="card-title">Disaster Management</h5>
-            <p class="card-text">
-              Early warning systems and real-time satellite monitoring.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- CTA -->
-    <div class="text-center mt-5">
-      <a routerLink="/solutions" class="btn btn-lg btn-explore">
-        View All Solutions
-      </a>
-    </div>
-
-  </div>
-
-  <!-- INDUSTRIES WE SERVE -->
-  <div class="container industries-section py-5">
-
-    <!-- Title -->
-    <div class="text-center mb-5">
-      <h2 class="fw-bold text-white">Industries We Serve</h2>
-      <p class="text-light">
-        Delivering satellite-powered intelligence across critical sectors
-      </p>
-    </div>
-
-    <!-- Cards -->
-    <div class="row g-4">
-
-      <!-- Agriculture -->
-      <div class="col-lg-3 col-md-6">
-        <div class="industry-card">
-          <img src="assets/images/industries/agriculture.png" alt="Agriculture Satellite" />
-          <div class="industry-overlay">
-            <h5>Agriculture</h5>
-            <p>Crop health monitoring & yield forecasting</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Urban Planning -->
-      <div class="col-lg-3 col-md-6">
-        <div class="industry-card">
-          <img src="assets/images/industries/urban.jpg" alt="Urban Satellite" />
-          <div class="industry-overlay">
-            <h5>Urban Planning</h5>
-            <p>Smart city & infrastructure insights</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Forestry -->
-      <div class="col-lg-3 col-md-6">
-        <div class="industry-card">
-          <img src="assets/images/industries/forestry.jpg" alt="Forest Satellite" />
-          <div class="industry-overlay">
-            <h5>Forestry</h5>
-            <p>Deforestation & vegetation analysis</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Maritime -->
-      <div class="col-lg-3 col-md-6">
-        <div class="industry-card">
-          <img src="assets/images/industries/maritime.jpg" alt="Ocean Satellite" />
-          <div class="industry-overlay">
-            <h5>Maritime</h5>
-            <p>Coastal monitoring & marine surveillance</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
+</div>

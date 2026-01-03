@@ -1,1 +1,49 @@
-<p>carrer works!</p>
+<div class="page-bg">
+
+  <!-- HERO -->
+  <section class="career-hero d-flex align-items-center justify-content-center" style="margin-top: 3rem;">
+    <div class="hero-overlay"></div>
+    <div class="container text-center text-white position-relative">
+      <h1 class="fw-bold hero-title">Join Geosant</h1>
+      <p class="hero-subtitle mt-3">
+        Be part of a global team powering decisions through satellite intelligence
+      </p>
+      <!-- <a routerLink="/contacts" class="btn btn-explore mt-4 glow-btn">
+        Apply Now
+      </a> -->
+    </div>
+  </section>
+
+  <!-- OPEN POSITIONS -->
+  <section class="career-section py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Open Positions</h2>
+        <p class="section-subtitle">Explore opportunities to shape the future of geospatial intelligence</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" *ngFor="let job of jobs">
+          <div class="job-card">
+            <div class="job-icon" [innerHTML]="getIconSvg(job.icon)"></div>
+            <div class="job-content">
+              <h4>{{ job.title }}</h4>
+              <p>{{ job.description }}</p>
+              <span class="job-department">{{ job.department }}</span>
+              <a [routerLink]="job.applyLink" class="btn btn-apply mt-3">Apply</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip text-center py-5">
+    <h2 class="fw-bold">Excited to Join Geosant?</h2>
+    <a routerLink="/contacts" class="btn btn-explore mt-3 glow-btn">
+      Apply Now
+    </a>
+  </section>
+
+</div>
