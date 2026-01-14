@@ -1,29 +1,33 @@
+/* Footer background with faint satellite grid */
 .footer {
-  background-color: #000;
-  color: #e5e7eb;
-  padding: 60px 0 30px;
-  font-size: 15px;
+  position: relative;
+  background-color: #000; /* Pure black */
+  color: #e8f1f8;
+  padding: 4rem 0 2rem;
+  overflow: hidden;
 }
 
-.footer-logo {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #ffffff;
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(77,255,198,0.05) 0 1px, transparent 1px 60px),
+    repeating-linear-gradient(90deg, rgba(77,255,198,0.05) 0 1px, transparent 1px 60px);
+  z-index: 0;
 }
 
-.footer-title {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #f8fafc;
+/* Footer content on top */
+.footer .container,
+.footer h2,
+.footer h5,
+.footer p,
+.footer a {
+  position: relative;
+  z-index: 2;
 }
 
-.footer-text {
-  color: #94a3b8;
-  line-height: 1.6;
-}
-
+/* Quick Links */
 .footer-list {
   list-style: none;
   padding: 0;
@@ -31,123 +35,75 @@
 }
 
 .footer-list li {
-  margin-bottom: 8px;
-  color: #cbd5f5;
+  margin-bottom: 0.8rem;
 }
 
 .footer-list a {
-  color: #38bdf8;
   text-decoration: none;
-}
-
-.footer-list a:hover {
-  text-decoration: underline;
-}
-
-.footer-divider {
-  border-color: rgba(148, 163, 184, 0.2);
-}
-
-.footer-bottom {
-  font-size: 14px;
-  color: #94a3b8;
-}
-
-.footer-social {
-  display: flex;
-  gap: 14px;
-}
-
-.footer-social a {
-  color: #94a3b8;
-  font-size: 20px;
-  transition: color 0.3s ease;
-}
-
-.footer-social a:hover {
-  color: #38bdf8;
-}
-
-/* Global Styles Light Theme */
-body.light-theme {
-  background-color: #f8fafc;
-  color: #020617;
-}
-
-body.light-theme .footer {
-  background-color: #ffffff;
-  color: #020617;
-}
-
-body.light-theme .footer-text,
-body.light-theme .footer-bottom {
-  color: #475569;
-}
-
-/* MOBILE-OPTIMIZED COMPACT FOOTER */
-@media (max-width: 768px) {
-  .footer {
-    padding: 40px 0 20px;
-    text-align: center;
-  }
-
-  .footer-social {
-    justify-content: center;
-  }
-
-  .footer-list {
-    text-align: center;
-  }
-
-  .footer-logo {
-    margin-bottom: 16px;
-  }
-}
-
-/* SATELLITE-THEMED GRADIENT ACCENT */
-.footer {
+  color: rgba(230, 255, 243, 0.8);
+  transition: color 0.3s ease, transform 0.3s ease;
   position: relative;
 }
 
-/* .footer::before {
-  content: '';
+.footer-list a::after {
+  content: "";
   position: absolute;
-  top: 0;
+  width: 0%;
+  height: 2px;
+  bottom: -2px;
   left: 0;
-  height: 4px;
+  background: #4df0b1;
+  transition: width 0.3s ease;
+}
+
+.footer-list a:hover::after,
+.footer-list a.active-link::after {
   width: 100%;
+}
+
+.footer-list a:hover,
+.footer-list a.active-link {
+  color: #4df0b1;
+  transform: translateX(2px);
+}
+
+/* Social Icons */
+.footer-social a {
+  color: #4df0b1;
+  font-size: 1.3rem;
+  margin-right: 0.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: scale(1.2);
+  color: #00ffc1;
+}
+
+/* Divider */
+.footer-divider {
+  border-top: 1px solid rgba(77,255,198,0.2);
+}
+
+/* Bottom text */
+.footer-bottom {
+  font-size: 0.85rem;
+  color: rgba(230, 255, 243, 0.6);
+}
+
+/* For hr border */
+/* Footer separator from main content */
+.section-footer-divider {
+  border: none;
+  height: 1px;
+  margin: 0;
   background: linear-gradient(
-    90deg,
-    #38bdf8,
-    #6366f1,
-    #22d3ee
+    to right,
+    transparent,
+    rgba(0, 212, 255, 0.6),
+    rgba(0, 212, 255, 0.9),
+    rgba(0, 212, 255, 0.6),
+    transparent
   );
-} */
-/* ===============================
-   CTA SECTION
-================================ */
-.solutions-cta {
-  padding: 4rem 0;
-  background:
-    linear-gradient(
-      120deg,
-      #020617,
-      rgba(3, 140, 76, 0.25),
-      #020617
-    );
-  color: #fff;
-}
-
-.btn-explore {
-  background: #038c4c;
-  color: #fff;
-  border-radius: 50px;
-  padding: 0.75rem 2.5rem;
-  transition: all 0.3s ease;
-}
-
-.btn-explore:hover {
-  background: #02c173;
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(3, 140, 76, 0.5);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.35);
 }

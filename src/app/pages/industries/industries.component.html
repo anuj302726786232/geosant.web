@@ -1,15 +1,12 @@
-<!-- GLOBAL GRID BACKGROUND -->
-<div class="global-grid-bg"></div>
-
 <!-- HERO -->
-<section class="geo-hero position-relative d-flex align-items-center">
+<section class="geo-hero d-flex align-items-center text-center">
   <video class="hero-video" autoplay muted loop playsinline>
-    <source src="assets/videos/solutions/satellite-solutions.mp4" type="video/mp4" />
+    <source src="assets/videos/industries/industrieshero.mp4" type="video/mp4" />
   </video>
 
   <div class="video-overlay"></div>
 
-  <div class="container text-center position-relative hero-text">
+  <div class="container position-relative hero-text">
     <h1 class="fw-bold">
       <span>Industries We Empower</span>
     </h1>
@@ -19,43 +16,48 @@
   </div>
 </section>
 
-<!-- GRID -->
+<!-- INDUSTRIES SECTION -->
 <section class="geo-section">
   <div class="container">
 
-    <div class="geo-header text-center mb-5">
+    <!-- HEADER -->
+    <div class="text-center mb-5" style="color: white;">
       <h2 class="fw-bold">Our Capabilities</h2>
-      <p>
+      <p class="mx-auto mt-3" style="max-width: 720px;">
         End-to-end satellite solutions designed for intelligence,
         monitoring, and operational decision-making.
       </p>
     </div>
 
+    <!-- CARDS -->
     <div class="row g-4">
       <div class="col-lg-4 col-md-6" *ngFor="let indus of industries">
-        <div class="geo-card h-100">
+        <div class="card geo-card h-100 text-center">
 
-          <div class="geo-icon">
+          <div class="geo-icon mx-auto">
             <i class="{{ indus.icon }}"></i>
           </div>
 
-          <h5 class="fw-semibold mt-3">
-            {{ indus.title }}
-          </h5>
+          <div class="card-body">
+            <h5 class="card-title mt-3">
+              {{ indus.title }}
+            </h5>
 
-          <p>
-            {{ indus.description }}
-          </p>
+            <p class="card-text">
+              {{ indus.description }}
+            </p>
+          </div>
 
         </div>
       </div>
     </div>
 
+    <!-- CTA -->
     <div class="text-center mt-5">
-      <a routerLink="/contacts" class="btn btn-explore">
+      <a routerLink="/contacts" class="btn btn-cta btn-lg px-5">
         Talk to an Expert
       </a>
     </div>
 
-  </div>
+  </div>">
 </section>

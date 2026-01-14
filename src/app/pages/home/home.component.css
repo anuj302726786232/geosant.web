@@ -1,60 +1,14 @@
 /* =====================================================
-   GLOBAL GEO-SPATIAL BACKGROUND
+   PURE BLACK GLOBAL BACKGROUND
 ===================================================== */
 .home-page {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  isolation: isolate; /* prevents z-index bleed */
+  isolation: isolate;
 
-  /* Earth → atmosphere → space gradient */
-  background: linear-gradient(
-    180deg,
-    #071826 0%,    /* deep space */
-    #0b2b45 28%,   /* upper atmosphere */
-    #134d73 55%,   /* ocean */
-    #e6f0f7 100%   /* cloud haze */
-  );
-}
-
-/* =====================================================
-   GRID OVERLAY (GIS STYLE)
-===================================================== */
-.home-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.025),
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px,
-      transparent 140px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.025),
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px,
-      transparent 140px
-    );
-}
-
-/* =====================================================
-   NOISE TEXTURE (MAP DEPTH)
-===================================================== */
-.home-page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  background: #000000; /* PURE BLACK */
+  color: #f1f5f9;
 }
 
 /* =====================================================
@@ -65,7 +19,7 @@
   overflow: hidden;
 }
 
-/* Background video */
+/* Video */
 .hero-video {
   position: absolute;
   inset: 0;
@@ -73,429 +27,211 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  opacity: 0.6;
-  mix-blend-mode: screen;
+  opacity: 0.45; /* reduced for black bg */
 }
 
-/* Atmospheric overlay */
+/* Black overlay for visibility */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
 
-  background:
-    radial-gradient(
-      circle at 70% 25%,
-      rgba(120, 190, 255, 0.22),
-      transparent 60%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(4, 12, 24, 0.92),
-      rgba(4, 12, 24, 0.65)
-    );
+  /* background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.92),
+    rgba(0, 0, 0, 0.75)
+  ); */
 }
 
-/* Hero content */
 .hero-content {
   position: relative;
   z-index: 3;
 }
 
-/* Hero buttons */
-.hero-section .btn {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.hero-section h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
 }
 
-.hero-section .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4);
-}
-
-/* =====================================================
-   SECTION NORMALIZATION
-===================================================== */
-.hero-section,
-.partners-section,
-.solutions-section,
-.industries-section,
-.resources-section {
-  background: transparent;
-  position: relative;
-  z-index: 2;
-}
-
-section {
-  /* padding-top: 5rem; */
-  padding-bottom: 5rem;
+.hero-section p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgba(241, 245, 249, 0.85);
 }
 
 /* =====================================================
-   SURFACE CARDS (SOLUTIONS, RESOURCES)
+   GLOBAL TEXT VISIBILITY
 ===================================================== */
-/* .card,
-.surface-card {
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(6px);
-  border-radius: 16px;
-  border: none;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-} */
-
-/* =====================================================
-   PARTNERS SECTION
-===================================================== */
-.partners-slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  margin-top: 2rem;
-}
-
-.partners-track {
-  display: flex;
-  width: calc(200%); /* Because we duplicated logos */
-  animation: scroll-left 20s linear infinite;
-}
-
-.partner-logo-box {
-  flex: 0 0 auto;
-  width: 160px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 2rem;
-  background: rgba(255, 255, 255, 0.05); /* subtle glass */
-  border-radius: 12px;
-  overflow: hidden; /* important to crop logo perfectly */
-  transition: transform 0.3s ease;
-}
-
-.partner-logo-box:hover {
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.partner-logo {
-  max-width: 120px;
-  max-height: 50px;
-  object-fit: contain;
-  filter: grayscale(0%);
-  opacity: 0.75;
-  transition: all 0.25s ease;
-}
-
-.partner-logo-box:hover .partner-logo {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-/* SCROLL ANIMATION */
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* =====================================================
-   SOLUTIONS SECTION
-===================================================== */
-.solutions-section {
-  position: relative;
-  z-index: 2;
-}
-
-/* Card base */
-.solution-card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  background: linear-gradient(
-    180deg,
-    rgba(30, 90, 140, 0.35),
-    rgba(15, 45, 75, 0.45)
-  );
-
-  border-radius: 18px;
-  padding: 1.75rem;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(120, 190, 255, 0.25);
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* Hover */
-.solution-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-}
-
-/* Card content */
-.solution-card-body h5 {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.solution-card-body p {
-  color: rgba(230, 237, 243, 0.85);
-  line-height: 1.6;
-}
-
-/* Icon */
-.solution-icon {
-  font-size: 2.4rem;
-  color: #7cc4ff;
-}
-
-/* Footer */
-.solution-card-footer {
-  margin-top: 1rem;
-}
-
-.solution-card-footer a {
-  color: #9ad4ff;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.solution-card-footer a:hover {
-  color: #ffffff;
-}
-
-/* =====================================================
-   INDUSTRIES SECTION
-===================================================== */
-.industries-section {
-  position: relative;
-  z-index: 2;
-}
-
-/* Card base */
-.industry-card {
-  height: 240px;
-  border-radius: 18px;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  position: relative;
-
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-}
-
-/* Glass overlay */
-.industry-glass {
-  position: absolute;
-  inset: 0;
-  padding: 1.75rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  background: linear-gradient(
-    180deg,
-    rgba(15, 45, 75, 0.25),
-    rgba(10, 30, 55, 0.85)
-  );
-
-  /* backdrop-filter: blur(6px); It will blur the background image */
-  border: 1px solid rgba(120, 190, 255, 0.25);
-}
-
-/* Text */
-.industry-glass h5 {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.industry-glass p {
-  color: rgba(230, 237, 243, 0.85);
-  margin-bottom: 0.5rem;
-}
-
-/* Link */
-.industry-glass a {
-  color: #9ad4ff;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.industry-glass a:hover {
-  color: #ffffff;
-}
-
-.industry-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.industry-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
-}
-
-/* =====================================================
-   METRICS
-===================================================== */
-.metrics-card {
-  background: linear-gradient(
-    180deg,
-    #0b2238,
-    #061522
-  );
-  color: #ffffff;
-  border-radius: 18px;
-  padding: 2.5rem 1.5rem;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-}
-
-/* =====================================================
-   DARK MODE SUPPORT
-===================================================== */
-@media (prefers-color-scheme: dark) {
-  .home-page {
-    background: linear-gradient(
-      180deg,
-      #040b14 0%,
-      #071826 35%,
-      #0b2b45 70%,
-      #134d73 100%
-    );
-  }
-
-  /* .card,
-  .surface-card {
-    background: rgba(10, 25, 45, 0.85);
-    color: #e8f1f8;
-  } */
-}
-
-/* =========================================
-   GLOBAL TEXT VISIBILITY SYSTEM
-========================================= */
-.home-page {
-  color: #e6edf3; /* soft off-white, not pure white */
-}
-
-/* Headings */
 .home-page h1,
 .home-page h2,
 .home-page h3,
 .home-page h4,
 .home-page h5 {
   color: #ffffff;
-  letter-spacing: 0.2px;
 }
 
-/* Secondary text */
 .home-page p,
-.home-page .text-muted,
 .home-page .opacity-75 {
-  color: rgba(230, 237, 243, 0.78) !important;
+  color: rgba(241, 245, 249, 0.82) !important;
 }
 
-/* Small helper text */
 .home-page .small {
-  color: rgba(230, 237, 243, 0.7);
+  color: rgba(241, 245, 249, 0.7);
 }
 
-/* For Explore button */
+/* =====================================================
+   SECTIONS
+===================================================== */
+.solutions-section,
+.industries-section {
+  padding: 5rem 0;
+}
+
+/* =====================================================
+   SOLUTION CARDS (VISIBLE ON BLACK)
+===================================================== */
+.solution-card {
+  background: rgba(15, 23, 42, 0.75); /* glass on black */
+  border-radius: 18px;
+  padding: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  backdrop-filter: blur(10px);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+}
+
+.solution-icon {
+  font-size: 2.4rem;
+  color: #38bdf8;
+}
+
+.solution-card.clickable {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solution-card.clickable:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* =====================================================
+   INDUSTRIES
+===================================================== */
+.industry-card {
+  height: 230px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.industry-glass {
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.9)
+  );
+
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+/* =====================================================
+   METRICS
+===================================================== */
+.metrics-card {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 18px;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* =====================================================
+   CTA SURFACE
+===================================================== */
+.surface-card {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+/* =====================================================
+   GEO BUTTON (PURE BLACK SAFE)
+===================================================== */
+/* =========================================
+   GEO BUTTON – HARD CODED GREEN THEME
+========================================= */
+/* =========================================
+   GEO BUTTON – HARD CODED GREEN THEME
+   (WORKS WITH YOUR EXACT HTML)
+========================================= */
+
 .geo-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   width: 240px;
   height: 56px;
-
-  text-decoration: none;
   border-radius: 14px;
+  text-decoration: none;
   overflow: hidden;
   cursor: pointer;
 }
 
-/* Modern button background */
+/* ===============================
+   BUTTON BACKGROUND
+================================ */
 .geo-btn-bg {
   position: absolute;
   inset: 2px;
   border-radius: 12px;
+  z-index: 1;
 
   background: linear-gradient(
     135deg,
-    #0b1f33,
-    #123a5a,
-    #0b1f33
+    #02663a,
+    #038c4c,
+    #02663a
   );
 
   backdrop-filter: blur(6px);
-  z-index: 1;
 }
 
-/* Animated border layer */
+/* ===============================
+   ANIMATED BORDER
+================================ */
 .geo-btn-border {
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  z-index: 0;
 
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
     transparent,
-    #4da3ff,
-    #00e5ff,
-    #4da3ff,
+    #7cffc6,
+    #00ff9c,
+    #7cffc6,
     transparent
-  );
+  ); */
 
   background-size: 300% 100%;
-  animation: borderSlide 2.8s linear infinite;
-  z-index: 0;
+  /* animation: geoBorderSlide 3s linear infinite; */
 }
 
-/* Button text */
-.geo-btn-text {
-  position: relative;
-  z-index: 2;
-
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-
-  color: #e8f1f8;
-}
-
-/* Hover effect */
-.geo-btn:hover .geo-btn-bg {
-  background: linear-gradient(
-    135deg,
-    #123a5a,
-    #1f5f8b,
-    #123a5a
-  );
-}
-
-.geo-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(77, 163, 255, 0.35);
-}
-
-/* Animation */
-@keyframes borderSlide {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 300% 50%;
-  }
-}
-
-/* For btn text */
+/* ===============================
+   BUTTON TEXT
+================================ */
 .geo-btn-text {
   position: relative;
   z-index: 2;
@@ -507,96 +243,205 @@ section {
 
   background: linear-gradient(
     90deg,
-    #9fdcff,
-    #4da3ff,
-    #00e5ff,
-    #4da3ff,
-    #9fdcff
+    #eafff3,
+    #7cffc6,
+    #eafff3
   );
 
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  animation: textFlow 4s linear infinite;
+  /* animation: geoTextFlow 4s linear infinite; */
 }
 
-@keyframes textFlow {
+/* ===============================
+   HOVER EFFECT
+================================ */
+.geo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(3, 140, 76, 0.45);
+}
+
+.geo-btn:hover .geo-btn-bg {
+  background: linear-gradient(
+    135deg,
+    #038c4c,
+    #02a35a,
+    #038c4c
+  );
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+/* @keyframes geoBorderSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+@keyframes geoTextFlow {
   0% {
     background-position: 0% center;
   }
   100% {
     background-position: 200% center;
   }
-}
+} */
 
-/* CTA Button */
+/* =====================================================
+   CTA BUTTON
+===================================================== */
+/* =========================================
+   SATELLITE PING RIPPLE EFFECT
+========================================= */
+
+/* Base button (keep your existing styles) */
 .expert-btn {
-  position: relative;
+  background-color: #038c4c;
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 12px 32px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  padding: 14px 32px;
-  border-radius: 999px;
   text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 
-  background: linear-gradient(
-    135deg,
-    rgba(79, 172, 254, 0.18),
-    rgba(0, 229, 255, 0.08)
-  );
-
-  border: 1px solid rgba(120, 190, 255, 0.45);
-  backdrop-filter: blur(8px);
-
-  transition: all 0.3s ease;
+  position: relative;
+  z-index: 3;
   overflow: hidden;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-/* subtle scanning line */
-.expert-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.35),
-    transparent 70%
-  );
-  transform: translateX(-120%);
-  transition: transform 2s ease;
-}
-
-/* text */
+/* Text stays above ripple */
 .expert-btn-text {
   position: relative;
   z-index: 2;
-
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-
-  background: linear-gradient(
-    90deg,
-    #e8f1f8,
-    #9fdcff,
-    #4da3ff
-  );
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
-/* hover */
+/* RIPPLE RING */
+.expert-btn::after {
+  content: "";
+  position: absolute;
+  inset: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  transform: translate(-50%, -50%) scale(0.2);
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+/* HOVER → SATELLITE PING */
+/* .expert-btn:hover::after {
+  animation: satellitePing 1.4s ease-out infinite;
+} */
+
+/* Button hover lift */
 .expert-btn:hover {
+  background-color: #02a35a;
   transform: translateY(-2px);
-  box-shadow:
-    0 12px 35px rgba(0, 100, 255, 0.25),
-    0 0 0 1px rgba(120, 190, 255, 0.6);
+  box-shadow: 0 12px 30px rgba(3, 140, 76, 0.45);
 }
 
-.expert-btn:hover::before {
-  transform: translateX(120%);
+/* CLICK */
+.expert-btn:active {
+  transform: translateY(0);
 }
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+/* @keyframes satellitePing {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  70% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.6);
+  }
+} */
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+/* @keyframes borderSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+} */
+
+/* For trusted partners */
+.trusted-partners {
+  /* background: #020617; */
+  overflow: hidden;
+}
+
+/* Slider container */
+.logo-slider {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Track */
+.logo-track {
+  display: flex;
+  width: fit-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+/* Logo sets */
+.logo-set {
+  display: flex;
+  gap: 60px;
+  padding-right: 60px;
+}
+
+/* Animation */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Logos */
+.logo-item img {
+  height: 55px;
+  filter: grayscale(100%) brightness(0.8);
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+
+.logo-item img:hover {
+  filter: none;
+  opacity: 1;
+}
+
+/* Pause on hover */
+.logo-slider:hover .logo-track {
+  animation-play-state: unset;
+}
+

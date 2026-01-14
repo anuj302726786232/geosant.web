@@ -1,20 +1,30 @@
+<hr class="section-footer-divider" />
+
+
 <footer class="footer">
   <div class="container">
 
     <!-- Top Section -->
     <div class="row gy-4 align-items-start">
 
-      <!-- Brand -->
+      <!-- BRAND + CONTACT -->
       <div class="col-lg-4 col-md-6">
-        <h2 class="footer-logo">Geosant</h2>
+        <h2 class="footer-logo text-start">
+          <img src="assets/images/geosant/geosant.png" class="img-fluid" style="max-width: 180px;" alt="GeoSant Logo">
+        </h2>
+
         <p class="footer-text">
           Delivering satellite-based intelligence and modern digital
           solutions for smarter decision-making.
         </p>
 
-        <!-- Social Icons -->
+        <ul class="footer-list mt-3">
+          <li><strong>Email:</strong> <a href="mailto:asp123999&#64;gmail.com"> asp123999&#64;gmail.com</a></li>
+          <li><strong>Phone:</strong> +91 9151320622</li>
+        </ul>
+
         <div class="footer-social mt-3">
-          <a href="linkedin.com/company/geosant" target="_blank" aria-label="LinkedIn">
+          <a href="https://linkedin.com/company/geosant" target="_blank" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
           <a href="https://x.com/geosant12" target="_blank" aria-label="X">
@@ -26,54 +36,32 @@
         </div>
       </div>
 
-      <!-- Contact -->
+      <!-- QUICK LINKS -->
       <div class="col-lg-4 col-md-6">
-        <h5 class="footer-title">Contact</h5>
+        <h5 class="footer-title">Quick Links</h5>
+
         <ul class="footer-list">
-          <li>
-            Email:<a href="mailto:info&#64;mycompany.com">
-              <!-- info&#64;geosant.com -->
-              asp123999&#64;gmail.com
+          <li *ngFor="let link of navLinks">
+            <a [routerLink]="link.path" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+              {{ link.label }}
             </a>
           </li>
-          <li>Phone: +91 9151320622</li>
         </ul>
-
-        <!-- Theme Toggle -->
-        <!-- <button class="btn btn-sm theme-toggle mt-3" (click)="toggleTheme()" aria-label="Toggle theme">
-          🌙 / ☀️
-        </button> -->
       </div>
 
-      <!-- Address -->
+      <!-- ADDRESS + MAP -->
       <div class="col-lg-4 col-md-12">
         <h5 class="footer-title">Office Address</h5>
         <p class="footer-text mb-3">
-          BLOCK: H-1/A, SECTOR : 63, NOIDA-201301,<br />
-          Uttar Pradesh, India
+          BLOCK: H-1/A, SECTOR: 63, NOIDA-201301,<br />Uttar Pradesh, India
         </p>
 
-        <!-- Map -->
         <div class="ratio ratio-16x9 rounded overflow-hidden footer-map">
           <iframe src="https://www.google.com/maps?q=BLOCK%20H-1/A,%20SECTOR%2063,%20NOIDA%20201301&output=embed"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="600" height="450" style="border:0;"
-            allowfullscreen="">
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0;" allowfullscreen>
           </iframe>
-
         </div>
       </div>
-
-      <!-- CTA SECTION -->
-      <!-- <section class="solutions-cta text-center">
-        <div class="container">
-          <h2 class="fw-bold">Turn Earth Data Into Action</h2>
-          <p>Connect with our experts to explore tailored satellite solutions.</p>
-
-          <a routerLink="/contacts" class="btn btn-explore btn-lg">
-            Contact Us
-          </a>
-        </div>
-      </section> -->
 
     </div>
 
@@ -84,6 +72,5 @@
     <div class="text-center footer-bottom">
       © 2026 Geosant. All rights reserved.
     </div>
-
   </div>
 </footer>

@@ -1,5 +1,5 @@
 <!-- HERO SECTION WITH VIDEO -->
-<section class="solutions-hero">
+<section class="solutions-hero mt-5">
   <video autoplay muted loop playsinline class="hero-video">
     <source src="assets/videos/satellitewithearth.mp4" type="video/mp4" />
   </video>
@@ -9,113 +9,48 @@
   <div class="hero-content container text-center">
     <h1 class="fw-bold">Solutions We Deliver</h1>
     <p class="lead">
-      Delivering satellite imagery and geospatial intelligence
-      to power real-world decisions
+      Examine how Geosant provides practical, data-driven insights through advanced satellite imagery, GIS mapping, and
+      geospatial analytics to support governments, industries, and research institutions globally.
     </p>
   </div>
 </section>
 
-<!-- INDUSTRIES SECTION -->
+<!-- SOLUTIONS SECTION -->
 <section class="solutions-section">
-  <!-- GRID BACKGROUND -->
-  <div class="bg-grid"></div>
-
   <div class="container">
-    <div class="row g-4">
+    <div class="section-header text-center mb-5">
+      <span class="section-badge">What We Offer</span>
 
-      <!-- CARD -->
-      <div class="col-lg-4 col-md-6">
-        <div class="solution-card">
-          <img src="assets/images/solutions/agriculture.png" alt="Agriculture">
-          <div class="card-content">
-            <h4>Agriculture</h4>
-            <p>
-              Monitor crop health, predict yields, and optimize irrigation using
-              high-resolution satellite data.
-            </p>
+      <h3 class="section-title">
+        Our Solutions & Services
+      </h3>
+
+      <h5 class="section-subtitle">
+        Discover the Observatory
+      </h5>
+
+      <div class="header-underline"></div>
+    </div>
+
+    <div class="row g-4 mt-3">
+      <div class="col-lg-4 col-md-6" *ngFor="let card of solutionCards; trackBy: trackById">
+        <a class="solution-card-link" [routerLink]="['/solutions', card.slug]" style="text-decoration: none">
+          <div class="solution-card h-100">
+            <img [src]="card.image" [alt]="card.alt" />
+
+            <div class="card-content">
+              <h4>{{ card.title }}</h4>
+              <p>{{ card.description }}</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
-
-      <!-- CARD -->
-      <div class="col-lg-4 col-md-6">
-        <div class="solution-card">
-          <img src="assets/images/industries/urban.jpg" alt="Urban Planning">
-          <div class="card-content">
-            <h4>Urban Planning</h4>
-            <p>
-              Analyze urban growth, infrastructure expansion, and population
-              dynamics with geospatial intelligence.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD -->
-      <div class="col-lg-4 col-md-6">
-        <div class="solution-card">
-          <img src="assets/images/industries/forestry.jpg" alt="Forestry">
-          <div class="card-content">
-            <h4>Forestry & Environment</h4>
-            <p>
-              Track deforestation, vegetation health, and carbon stock
-              using time-series satellite imagery.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD -->
-      <div class="col-lg-4 col-md-6">
-        <div class="solution-card">
-          <img src="assets/images/industries/maritime.jpg" alt="Maritime">
-          <div class="card-content">
-            <h4>Maritime & Coastal</h4>
-            <p>
-              Detect vessels, monitor coastlines, and identify oil spills
-              for maritime safety and compliance.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD -->
-      <div class="col-lg-4 col-md-6">
-        <div class="solution-card">
-          <img src="assets/images/solutions/energy.png" alt="Energy">
-          <div class="card-content">
-            <h4>Energy & Utilities</h4>
-            <p>
-              Monitor pipelines, solar farms, and power infrastructure
-              with continuous satellite surveillance.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD -->
-      <div class="col-lg-4 col-md-6">
-        <div class="solution-card">
-          <img src="assets/images/solutions/disaster.png" alt="Disaster">
-          <div class="card-content">
-            <h4>Disaster Management</h4>
-            <p>
-              Enable rapid damage assessment and response planning
-              using near-real-time satellite imagery.
-            </p>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
 <!-- WHY CHOOSE US -->
 <section class="why-us-section py-5">
-  <!-- GRID BACKGROUND -->
-  <div class="bg-grid"></div>
-
   <div class="container">
 
     <!-- Section Header -->
@@ -128,8 +63,6 @@
 
     <!-- Cards -->
     <div class="row g-4">
-
-      <!-- Card 1 -->
       <div class="col-lg-3 col-md-6">
         <div class="why-card h-100">
           <div class="icon-circle">
@@ -143,7 +76,6 @@
         </div>
       </div>
 
-      <!-- Card 2 -->
       <div class="col-lg-3 col-md-6">
         <div class="why-card h-100">
           <div class="icon-circle">
@@ -157,7 +89,6 @@
         </div>
       </div>
 
-      <!-- Card 3 -->
       <div class="col-lg-3 col-md-6">
         <div class="why-card h-100">
           <div class="icon-circle">
@@ -171,7 +102,6 @@
         </div>
       </div>
 
-      <!-- Card 4 -->
       <div class="col-lg-3 col-md-6">
         <div class="why-card h-100">
           <div class="icon-circle">
@@ -183,7 +113,6 @@
           </p>
         </div>
       </div>
-
     </div>
 
     <!-- CTA -->
@@ -192,6 +121,5 @@
         Talk to Our Experts
       </a>
     </div>
-
   </div>
 </section>

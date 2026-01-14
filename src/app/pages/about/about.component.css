@@ -1,139 +1,207 @@
-/* CONTINUOUS BACKGROUND + GRID */
+/* GLOBAL */
 .page-bg {
-  position: relative;
-  background: linear-gradient(135deg, #020617, #071b3a, #020617);
-  overflow: hidden;
-  font-family: 'Inter', sans-serif;
-}
-
-.page-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(34, 197, 94, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 197, 94, 0.06) 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: 0.6;
-  animation: gridMove 40s linear infinite;
-}
-
-@keyframes gridMove {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 200px 200px;
-  }
-}
-
-/* SECTIONS */
-.about-section,
-.about-dark,
-.about-stats,
-.cta-strip,
-.about-hero {
-  background: none;
-  margin: 0;
-  padding: 5rem 0;
-  position: relative;
-  z-index: 1;
+  background: #000;
   color: #e5e7eb;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
 
-/* HERO TEXT */
+/* HERO */
+.about-hero {
+  min-height: 50vh;
+  background:
+    radial-gradient(circle at top right, rgba(34, 197, 94, 0.18), transparent 60%),
+    linear-gradient(180deg, #000, #020617);
+  position: relative;
+}
+
 .hero-title {
-  font-size: 3rem;
-  color: #fff;
+  font-size: 3.2rem;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  opacity: 0.9;
+  font-size: 1.2rem;
+  color: #cbd5f5;
 }
 
-/* BUTTON GLOW */
-.glow-btn {
-  background: linear-gradient(90deg, #22c55e, #16a34a);
-  color: #020617;
-  font-weight: 700;
-  padding: 14px 36px;
-  border-radius: 999px;
-  border: none;
-  box-shadow: 0 0 25px rgba(34, 197, 94, 0.6), 0 0 50px rgba(34, 197, 94, 0.3);
-  transition: all 0.3s ease;
+/* TYPOGRAPHY */
+.section-title {
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
-.glow-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 40px rgba(34, 197, 94, 0.8), 0 0 70px rgba(34, 197, 94, 0.5);
+.section-subtitle {
+  color: #94a3b8;
 }
 
 /* INFO CARD */
 .info-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 20px 60px rgba(2, 6, 23, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 36px;
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
   text-align: center;
-  padding: 20px;
+  transition: all 0.4s ease;
 }
 
 .info-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 70px rgba(34, 197, 94, 0.35);
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(34, 197, 94, 0.35);
 }
 
-.info-icon {
-  margin-bottom: 15px;
-}
-
-/* CAPABILITY CARDS */
+/* CAPABILITY */
 .capability-card {
+  position: relative;
   background: rgba(255, 255, 255, 0.05);
   padding: 30px 20px;
   border-radius: 20px;
   text-align: center;
   color: #e5e7eb;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+
+  /* shadow for subtle depth */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
-.capability-card i,
+/* Hover effect: slight lift */
+.capability-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(34, 197, 94, 0.35), 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Animated line at top */
+.capability-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  /* line thickness */
+  width: 0;
+  /* start hidden */
+  background: #22c55e;
+  /* green line */
+  border-radius: 4px 4px 0 0;
+  transition: width 0.4s ease;
+}
+
+.capability-card:hover::before {
+  width: 100%;
+  /* full width on hover */
+}
+
+/* ICON */
 .capability-icon svg {
   font-size: 2.5rem;
   color: #22c55e;
   margin-bottom: 15px;
 }
 
-.capability-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 60px rgba(34, 197, 94, 0.3);
+/* TITLE & DESCRIPTION */
+.capability-card h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #22c55e;
 }
 
-/* GLASS CARD (MISSION/VISION) */
-.glass-card {
-  background: rgba(255, 255, 255, 0.06);
-  padding: 36px;
-  border-radius: 22px;
-  backdrop-filter: blur(14px);
+.capability-card p {
   color: #e5e7eb;
-  box-shadow: 0 20px 60px rgba(2, 6, 23, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  line-height: 1.5;
+}
+
+/* GLASS CARD */
+.glass-card {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 36px;
+  border-radius: 24px;
+  backdrop-filter: blur(18px);
+  transition: all 0.4s ease;
 }
 
 .glass-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 60px rgba(34, 197, 94, 0.25);
+  transform: translateY(-8px);
 }
 
-/* LIST ITEMS */
-.about-list li::before {
-  content: "✔";
-  color: #22c55e;
-  margin-right: 8px;
+/* CTA */
+/* ===============================
+   CTA – EMERALD GLASS THEME
+================================ */
+.cta-btn {
+  position: relative;
+  display: inline-block;
+  padding: 14px 42px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  overflow: hidden;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  box-shadow: 0 0 25px rgba(34,197,94,0.5);
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(34,197,94,0.7);
+}
+
+.cta-text {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.3),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cta-btn:hover .cta-bg {
+  opacity: 1;
+}
+/* ICON EFFECTS */
+.rotate-hover svg {
+  transition: transform 0.6s ease;
+}
+
+.rotate-hover:hover svg {
+  transform: rotate(12deg) scale(1.1);
+}
+
+.pulse {
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
 }

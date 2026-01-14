@@ -47,12 +47,7 @@
 
 /* MAIN BACKGROUND */
 .contact-section {
-  background: linear-gradient(
-    135deg,
-    #020617,
-    #071b3a,
-    #020617
-  );
+  background: black;
 }
 
 /* CARDS */

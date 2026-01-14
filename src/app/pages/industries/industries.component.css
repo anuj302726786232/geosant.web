@@ -1,80 +1,19 @@
 /* =========================
-   GLOBAL GRID BACKGROUND
+   GLOBAL
 ========================= */
-.global-grid-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-color: #020617;
-}
-
-.global-grid-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image:
-    linear-gradient(
-      rgba(56,189,248,0.22) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(56,189,248,0.22) 1px,
-      transparent 1px
-    );
-
-  background-size: 42px 42px;
-  opacity: 0.99;
-
-  filter:
-    drop-shadow(0 0 6px rgba(56,189,248,0.45))
-    drop-shadow(0 0 14px rgba(56,189,248,0.25));
-}
-
-
-/* subtle glow sweep */
-.global-grid-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top,
-      rgba(56, 189, 248, 0.15),
-      transparent 60%);
-}
-
-/* Animation */
-@keyframes grid-drift {
-  from {
-    background-position: 0 0, 0 0;
-  }
-
-  to {
-    background-position: 0 300px, 300px 0;
-  }
+body {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 /* =========================
    HERO
 ========================= */
 .geo-hero {
-  height: 70vh;
+  height: 80vh;
   position: relative;
-  z-index: 1;
+  /* background-color: #000; */
   overflow: hidden;
-}
-
-.video-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at top, rgba(56, 189, 248, 0.25), transparent 55%),
-    linear-gradient(180deg,
-      rgba(2, 6, 23, 0.85),
-      rgba(2, 6, 23, 0.85) 50%,
-      rgba(0, 0, 0, 0.9));
-  z-index: 1;
 }
 
 .hero-video {
@@ -83,69 +22,60 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  /* background: rgba(0, 0, 0, 0.75); */
 }
 
 .hero-text {
   z-index: 2;
-  position: relative;
 }
 
 .hero-text h1 span {
-  background: linear-gradient(90deg, #38bdf8, #22d3ee, #0ea5e9);
+  background: linear-gradient(90deg, #0d6efd, #38bdf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-text p {
-  color: #e5e7eb;
-  font-weight: 500;
+  color: #d1d5db;
 }
 
 /* =========================
    SECTION
 ========================= */
 .geo-section {
-  position: relative;
-  z-index: 1;
-  background:
-    linear-gradient(180deg,
-      rgba(2, 6, 23, 0.92),
-      rgba(2, 6, 23, 0.92) 60%,
-      rgba(2, 10, 31, 0.95));
   padding: 5rem 0;
-  color: #ffffff;
+  background-color: #000000;
 }
 
 /* =========================
-   HEADER
-========================= */
-.geo-header h2 {
-  font-size: 2.5rem;
-}
-
-.geo-header p {
-  max-width: 720px;
-  margin: 0 auto;
-  opacity: 0.85;
-}
-
-/* =========================
-   CARD
+   BOOTSTRAP DARK CARD
 ========================= */
 .geo-card {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
-  padding: 2.2rem;
-  border: 1px solid rgba(148, 163, 184, 0.15);
-  backdrop-filter: blur(10px);
-  transition: all 0.35s ease;
+  background-color: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  transition: all 0.3s ease;
 }
 
 .geo-card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(56, 189, 248, 0.6);
-  box-shadow: 0 25px 60px rgba(56, 189, 248, 0.15);
+  transform: translateY(-6px);
+  border-color: #038c4c;
+  box-shadow: 0 12px 30px #038c4c;
+}
+
+.geo-card .card-title {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.geo-card .card-text {
+  color: #9ca3af;
+  font-size: 0.95rem;
 }
 
 /* =========================
@@ -154,28 +84,66 @@
 .geo-icon {
   width: 56px;
   height: 56px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  background-color: #0d6efd;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
+  font-size: 24px;
+  color: #ffffff;
+  margin-top: 1.5rem;
 }
 
 /* =========================
-   CTA BUTTON
+   RESPONSIVE
 ========================= */
-.btn-explore {
-  background: linear-gradient(135deg, #038c4c, #22c55e);
-  color: #ffffff;
-  font-weight: 600;
-  padding: 12px 32px;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.35);
-  transition: all 0.4s ease;
+@media (max-width: 768px) {
+  .geo-hero {
+    height: 60vh;
+  }
+
+  .geo-section {
+    padding: 3.5rem 1rem;
+  }
 }
 
-.btn-explore:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 45px rgba(34, 197, 94, 0.55);
+/* =========================
+   CTA BUTTON THEME
+========================= */
+.btn-cta {
+  background-color: #038c4c;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 14px 36px;
+  border: none;
+
+  /* box-shadow: 0 10px 25px rgba(3, 140, 76, 0.35); */
+
+  /* transition: all 0.35s ease; */
 }
+
+/* Hover Effect */
+.btn-cta:hover {
+  background-color: #02a35a;
+  color: #ffffff;
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 18px 45px rgba(3, 140, 76, 0.55);
+}
+
+/* Active (Click) */
+.btn-cta:active {
+  transform: translateY(0);
+  box-shadow:
+    0 8px 18px rgba(3, 140, 76, 0.4);
+}
+
+/* Focus (Accessibility) */
+/* .btn-cta:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(3, 140, 76, 0.35),
+    0 0 0 3px rgba(3, 140, 76, 0.45);
+} */

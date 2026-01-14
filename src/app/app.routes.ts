@@ -7,6 +7,7 @@ import { CarrerComponent } from './pages/carrer/carrer.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailsComponent } from './pages/blog-details/blog-details.component';
+import { SolutionidetailsComponent } from './pages/solutionidetails/solutionidetails.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ export const routes: Routes = [
     { path: 'blogs/:id', component: BlogDetailsComponent },
     { path: 'industries', component: IndustriesComponent },
     { path: 'solutions', component: SolutionsComponent },
+    { path: 'solutions/:slug', component: SolutionidetailsComponent},
     { path: 'careers', component: CarrerComponent },
     { path: 'contacts', component: ContactComponent }
 ];

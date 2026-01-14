@@ -1,63 +1,143 @@
-/* PAGE BACKGROUND + GRID */
+/* ===============================
+   PAGE BACKGROUND
+================================ */
 .page-bg {
-  position: relative;
-  background: linear-gradient(135deg, #020617, #071b3a, #020617);
-  overflow: hidden;
+  min-height: 100vh;
+  background: #000000;
   font-family: 'Inter', sans-serif;
+  color: #e5e7eb;
+  overflow-x: hidden;
 }
 
-.page-bg::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  background-image:
-    linear-gradient(rgba(34,197,94,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34,197,94,0.06) 1px, transparent 1px);
-  background-size:60px 60px;
-  opacity:0.6;
-  animation:gridMove 40s linear infinite;
+/* ===============================
+   HERO
+================================ */
+/* HERO SECTION WITH GRADIENT */
+.career-hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 3rem 1rem;
+
+  /* Gradient background */
+  background: linear-gradient(135deg, #000000, #020617, #071b3a, #022b17);
+  background-size: 400% 400%;
 }
 
-@keyframes gridMove { from{background-position:0 0;} to{background-position:200px 200px;} }
-
-/* SECTIONS */
-.career-section, .cta-strip, .career-hero { background:none; z-index:1; color:#e5e7eb; padding:5rem 0; }
+/* Optional subtle overlay for depth */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* soft dark overlay */
+  z-index: 0;
+}
 
 /* HERO TEXT */
-.hero-title { font-size:3rem; }
-.hero-subtitle { font-size:1.25rem; opacity:0.9; }
-
-/* BUTTONS */
-.glow-btn, .btn-apply {
-  background: linear-gradient(90deg,#22c55e,#16a34a);
-  color:#020617;
-  font-weight:700;
-  padding:14px 36px;
-  border-radius:999px;
-  border:none;
-  box-shadow:0 0 25px rgba(34,197,94,0.6),0 0 50px rgba(34,197,94,0.3);
-  transition:all 0.3s ease;
+.career-hero .container {
+  position: relative;
+  z-index: 1; /* text above overlay */
 }
 
-.glow-btn:hover, .btn-apply:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 0 40px rgba(34,197,94,0.8),0 0 70px rgba(34,197,94,0.5); }
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+}
 
-/* JOB CARDS */
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+}
+
+/* ===============================
+   SECTION HEADERS
+================================ */
+.section-title {
+  font-weight: 800;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.section-subtitle {
+  color: #94a3b8;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   JOB CARDS
+================================ */
 .job-card {
+  position: relative;
+  height: 100%;
+  padding: 28px 24px 60px;
+  border-radius: 20px;
   background: rgba(255,255,255,0.05);
-  border-radius:20px;
-  padding:25px;
-  text-align:center;
-  backdrop-filter:blur(12px);
-  box-shadow:0 20px 60px rgba(2,6,23,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  
+  /* Visible shadow on black background */
+  /* box-shadow: 0 8px 25px rgba(34,197,94,0.25); */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
 }
 
-.job-card:hover { transform:translateY(-8px); box-shadow:0 25px 70px rgba(34,197,94,0.35); }
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 15px 35px rgba(34,197,94,0.35), /* green glow */
+    0 5px 4px rgba(0,0,0,0.6);       /* subtle black depth */
+}
 
-.job-icon { margin-bottom:15px; }
+/* CARD CONTENT */
+.job-icon {
+  margin-bottom: 18px;
+}
 
-.job-content h4 { color:#22c55e; margin-bottom:10px; font-size:1.25rem; }
-.job-content p { color:#e5e7eb; line-height:1.5; }
-.job-department { font-size:0.9rem; color:#94a3b8; font-weight:500; display:block; margin-top:5px; }
+.job-content h4 {
+  color: #22c55e;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.job-content p {
+  color: #e5e7eb;
+  line-height: 1.5;
+}
+
+.job-department {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+/* CTA BUTTON INSIDE CARD */
+.job-cta {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 36px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  background: rgba(34,197,94,0.35);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-cta:hover {
+  background: rgba(34,197,94,0.5);
+  box-shadow: 0 0 25px rgba(34,197,94,0.4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.3rem; }
+  .hero-subtitle { font-size: 1rem; }
+  .job-card { padding-bottom: 60px; }
+}

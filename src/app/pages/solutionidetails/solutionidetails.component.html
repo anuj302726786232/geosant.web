@@ -1,0 +1,116 @@
+<!-- =========================
+     HERO / HEADER SECTION
+========================= -->
+<section class="solution-hero text-center mt-5" [ngStyle]="{
+    'background-image': 'url(' + solution?.image + ')'
+  }">
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <h1>{{ solution?.title }}</h1>
+    <p>{{ solution?.intro }}</p>
+  </div>
+</section>
+
+<!-- =========================
+     BODY / CONTENT SECTION
+========================= -->
+<section class="solution-body">
+
+  <!-- Tabs -->
+  <div class="tabs-wrapper">
+    <button
+      class="tab-btn"
+      [class.active]="activeTab==='overview'"
+      (click)="setTab('overview')">
+      Overview
+    </button>
+
+    <button
+      class="tab-btn"
+      [class.active]="activeTab==='features'"
+      (click)="setTab('features')">
+      Features & Capabilities
+    </button>
+
+    <button
+      class="tab-btn"
+      [class.active]="activeTab==='usecases'"
+      (click)="setTab('usecases')">
+      Use Cases
+    </button>
+
+    <button
+      class="tab-btn"
+      [class.active]="activeTab==='technology'"
+      (click)="setTab('technology')">
+      Technology
+    </button>
+  </div>
+
+  <!-- Content -->
+  <div class="tab-content">
+
+    <!-- Overview with Image Carousel -->
+    <div *ngIf="activeTab==='overview'" class="overview-wrapper">
+      <div class="row align-items-center">
+        <!-- Carousel -->
+        <div class="col-lg-6 mb-3 mb-lg-0">
+          <div id="carouselSolution" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div 
+                class="carousel-item" 
+                *ngFor="let img of solution?.images; let i = index"
+                [class.active]="i===0">
+                <img [src]="img" class="d-block w-100 rounded" [alt]="solution?.title + ' image ' + (i+1)">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselSolution" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselSolution" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-lg-6">
+          <p>{{ solution?.content }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features & Capabilities -->
+    <ul *ngIf="activeTab==='features'">
+      <li *ngFor="let feature of solution?.features">
+        {{ feature }}
+      </li>
+    </ul>
+
+    <!-- Use Cases -->
+    <ul *ngIf="activeTab==='usecases'">
+      <li *ngFor="let use of solution?.useCases">
+        {{ use }}
+      </li>
+    </ul>
+
+    <!-- Technology -->
+    <p *ngIf="activeTab==='technology'">
+      {{ solution?.technology }}
+    </p>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrapper">
+    <a routerLink="/contacts" class="cta-btn">
+      <span class="cta-bg"></span>
+      <span class="cta-border"></span>
+      <span class="cta-text">Talk to an Expert</span>
+    </a>
+  </div>
+
+</section>

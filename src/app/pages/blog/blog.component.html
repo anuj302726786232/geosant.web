@@ -1,6 +1,5 @@
 <!-- BLOG HERO -->
-<section class="blog-hero d-flex align-items-center text-center position-relative">
-  <!-- Optional overlay for subtle glow -->
+<section class="blog-hero d-flex align-items-center text-center position-relative mt-5">
   <div class="hero-overlay"></div>
 
   <div class="container text-white position-relative">
@@ -11,33 +10,23 @@
   </div>
 </section>
 
+<!-- BLOG SECTION -->
 <section class="blog-section py-5">
   <div class="container">
 
     <!-- Tabs -->
     <div class="text-center mb-5">
-      <button
-        class="tab-btn"
-        [class.active]="activeTab==='blog'"
-        (click)="setTab('blog')">Blogs</button>
+      <button class="tab-btn" [class.active]="activeTab==='blog'" (click)="setTab('blog')">Blogs</button>
 
-      <button
-        class="tab-btn"
-        [class.active]="activeTab==='document'"
-        (click)="setTab('document')">Documents</button>
+      <button class="tab-btn" [class.active]="activeTab==='document'" (click)="setTab('document')">Documents</button>
 
-      <button
-        class="tab-btn"
-        [class.active]="activeTab==='case-study'"
-        (click)="setTab('case-study')">Case Studies</button>
+      <button class="tab-btn" [class.active]="activeTab==='case-study'" (click)="setTab('case-study')">Case
+        Studies</button>
     </div>
-
-    <!-- GRID BACKGROUND -->
-    <div class="bg-grid"></div>
 
     <!-- Cards -->
     <div class="row g-4">
-      <div class="col-lg-4 col-md-6" *ngFor="let item of filteredContents">
+      <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of filteredContents">
         <div class="blog-card h-100">
 
           <div class="blog-img-wrapper">
@@ -58,5 +47,13 @@
       </div>
     </div>
 
+  </div>
+
+  <!-- CTA -->
+  <div class="text-center mt-5">
+    <a routerLink="/contacts" class="cta-btn">
+      <span class="cta-bg"></span>
+      <span class="cta-text">Talk to an Expert</span>
+    </a>
   </div>
 </section>

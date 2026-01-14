@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
   partners: Partner[] = [];
   solutions: Solution[] = [];
   industries: Industry[] = [];
@@ -59,29 +58,33 @@ export class HomeComponent implements OnInit {
 
     this.solutions = [
       {
-        title: 'Earth Observation',
-        description: 'High-resolution satellite imagery for monitoring land, sea, and infrastructure.',
+        id: 1,
+        title: 'Earth Observation Data',
+        description: 'High-resolution satellite imagery for monitoring, mapping, and strategic decision-making.',
         icon: '🛰️',
-        slug: 'earth-observation'
+        slug: 'satellite-imagery'
       },
       {
-        title: 'Satellite Communications',
-        description: 'Reliable space-based connectivity for remote operations and global coverage.',
-        icon: '📡',
-        slug: 'satellite-communications'
+        id: 2,
+        title: 'Spatial Data Analysis',
+        description: 'Transform satellite data into actionable intelligence using AI-driven analytics and insights.',
+        icon: '🌍',
+        slug: 'geospatial-analytics'
       },
       {
-        title: 'Navigation & Positioning',
-        description: 'Precise GNSS-based positioning and timing solutions for land, air, and maritime use.',
+        id: 3,
+        title: 'Geographic Information Systems Solutions',
+        description: 'End-to-end GIS services for urban planning, infrastructure, agriculture, and resource management.',
         icon: '🧭',
-        slug: 'navigation-positioning'
-      },
-      {
-        title: 'Space Situational Awareness',
-        description: 'Tracking and monitoring of objects in orbit to ensure space safety and sustainability.',
-        icon: '🌌',
-        slug: 'space-situational-awareness'
+        slug: 'gis-mapping-solutions'
       }
+      // {
+      //   id: 4,
+      //   title: 'Remote Sensing Applications',
+      //   description: 'Advanced monitoring of environmental changes, disasters, and natural resources using remote sensing.',
+      //   icon: '🌌',
+      //   slug: 'remote-sensing-applications'
+      // }
     ];
 
     this.industries = [

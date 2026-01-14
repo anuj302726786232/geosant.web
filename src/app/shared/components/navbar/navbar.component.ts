@@ -20,4 +20,22 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.navLinks = this.navService.getNavLinks();
   }
+
+  // For collapse the navbar
+  closeNavbar() {
+    const navbar = document.getElementById('mainNavbar');
+
+    if (!navbar) return;
+
+    // 👇 Tell TypeScript that bootstrap exists on window
+    const bootstrap = (window as any).bootstrap;
+
+    if (bootstrap) {
+      const bsCollapse =
+        bootstrap.Collapse.getInstance(navbar) ||
+        new bootstrap.Collapse(navbar);
+
+      bsCollapse.hide();
+    }
+  }
 }
